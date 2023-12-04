@@ -41,7 +41,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'owl-campus-store.onrender.com'
 ]
 
 ROOT_URLCONF = 'campusStore_project.urls'
