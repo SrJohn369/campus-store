@@ -1,10 +1,10 @@
 FROM python:3.11.6-alpine3.18
 
-WORKDIR /appCampusStore
+WORKDIR /home/appCampusStore
 
 COPY ./requirements.txt .
 
-RUN pip install -r requirements.txt
+RUN pip install --upgrade pip && pip install -r requirements.txt
 
 COPY . .
 
