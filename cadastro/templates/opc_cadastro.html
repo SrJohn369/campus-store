@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="{% static 'css/cadastro.css' %}">
+
+        <title>Cadastro</title>
+    </head>
+    <body>
+            <div class="container">
+                <div class="form">
+
+                    <div class="opc-container">
+                        <div class="voltar">
+                            <a href="{% url 'login:login_usuario' %}"><i class="fa-solid fa-arrow-left"></i></a> 
+                        </div>
+                        <div class="form-header">
+                            <div class="title">
+                                <h1>Cadastrar como...</h1>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <div class="continue-btn opc-btn">
+                                <a href="cadastro_usuario"><button>Usuário</button></a>
+                            </div>
+                            <div class="continue-btn opc-btn">
+                                <a href="cadastro_vendedor"><button>Vendedor</button></a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="form-image">
+                    <img src="{% static 'img/campus-store-logo-branca.png' %}" alt="Logo da Campus Store">
+                </div>
+            </div>
+    </body>
+</html>

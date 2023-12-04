@@ -1,0 +1,374 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Open+Sans:wght@300;400;500&display=swap');
+
+* {
+    font-family: 'Lato', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+p {
+    font-size: 20px;
+}
+
+.fa-regular {
+    width: 25px;
+}
+
+ul {
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: var(--main-color);
+}
+
+:root {
+    --main-color: #08244c;
+}
+
+html, body {
+    overflow-x: hidden;
+}
+
+.lupa {
+    color: #fff;
+}
+
+/* ----------- NAVBAR ----------- */
+.navbarBg{
+    background-color: #fff;
+}
+
+nav {
+    border-bottom: 2px solid var(--main-color);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.10); 
+
+}
+
+.navbar a {
+    color: var(--main-color);
+    font-weight: 500;
+    font-size: 18px;
+}
+
+/* ----------- ICONES ----------- */
+.logo {
+    display: flex;
+    align-items: center;
+}
+.logo-img {
+    padding-right: 7px;
+    width: 50px;
+    margin-bottom: 10px;
+}
+
+.logo-txt{
+    width: 150px;
+    margin-top: 5px;
+}
+.iconeCar {
+    background-image: url('cart3.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    padding-right: 20px;
+    /* espaço para o ícone */
+}
+.iconeUser {
+    background-image: url('person-circle.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    padding-right: 20px;
+    /* espaço para o ícone */
+}
+
+
+/* ----------- BARRA DE PESQUISA ----------- */
+.input-group {
+    background-color: var(--main-color);
+    border-radius: 20px;
+}
+
+.input-group input {
+    background: transparent;
+    border: none;
+}
+
+#barraPesquisa .form-control:focus {
+    background-color: var(--main-color);
+    color: #fff;
+    font-size: 15px;
+
+    box-shadow: none;
+    border-color: transparent;
+}
+
+/* Adicione esta regra para alterar a cor do placeholder */
+.input-group input::placeholder {
+    color: #fff; /* Cor desejada para o texto do espaço reservado */
+    font-size: 15px;
+}
+
+
+
+.hamburger-menu {
+    color: transparent;
+    padding: 5px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+}
+
+.hamburger-menu:hover {
+    color: transparent;
+    border: none;
+}
+
+
+/*HEADER*/
+
+
+/* -------------------------- PERFIL -------------------------- */
+
+.container-perfil {
+    height: 100%;
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+}
+
+.perfil-config { /* -------------------------------- */
+    background-color: #a5a0a05a;
+    height: 488px;
+} 
+
+
+.perfil-config ul li {
+    padding-block: 20px;
+    padding-inline: 30px;
+}
+
+.perfil-config ul li:hover {
+    background-color: lightgrey;
+}
+
+.perfil-config ul li a h5 {
+    padding-left: 30px;
+}
+
+.perfil-config ul li a {
+    display: flex;
+    align-items: center;
+}
+
+.perfil-info {
+    width: 50%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+}
+
+.perfil-info .frame1 {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.perfil-info .frame1 img {
+    border: 6px solid yellowgreen;
+    border-radius: 50%;
+    width: 200px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.479); /* valores X, Y, desfoque, cor (preto com opacidade 0.1) */
+}
+
+
+
+.perfil-info .frame2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.perfil-info .frame2 .lin div {
+    margin-top: 30px;
+}
+
+.perfil-info .frame2 .lin .text p, .desc {
+    border-radius: 7px;
+    text-align: center;
+    background-color: #a5a0a05a;
+    padding: 10px 30px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.253);
+}
+
+.desc p {
+    text-indent: 20px;
+}
+
+
+/* --------------  PRODUTOS/SERVIÇOS ------------------*/
+.sobre-img img {
+    border-radius: 50%;
+    width: 290px;
+    border: 10px solid #7a33bc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.479); 
+}
+
+.sobre {
+    padding-block: 50px;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.sobre-info {
+    width: 600px;
+    text-align: justify;
+}
+
+.sobre-dados {
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.social-icons {
+    display: flex;
+}
+
+.social-icons li {
+    margin-right: 20px;
+}
+
+
+/* FOOTER */
+
+#footer {
+    background: #f9f8f8;
+    color: var(--main-color);
+    padding-top: 15px;
+}
+
+#footer h4 {
+    font-weight: 700;
+}
+
+#footer a {
+    color: var(--main-color);
+}
+
+.footer_coisa {
+    margin-bottom: 30px;
+}
+
+.linha {
+    border-top: 2px solid var(--main-color);
+    padding-block: 20px;
+}
+
+
+/*-------------------------------------*/
+/*-------------------------------------*/
+
+@media screen and (max-width: 1100px) {
+    .container-perfil {
+        flex-direction: column-reverse;
+    }
+
+    .perfil-config {
+        width: 100vw;
+        height: 300px;
+    }
+
+    .perfil-info .frame2 {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .perfil-info {
+        width: 60%;
+    }
+
+    .frame1 {
+        flex-direction: column;
+    }
+
+
+    .frame1 h2 {
+        padding-top: 20px;
+    }
+
+    .perfil-info .frame1 img {
+        width: 170px;
+    }
+
+    .sobre-img img {
+        width: 270px;
+    }
+
+    .sobre-info {
+        width: 500px;
+    }
+
+}
+
+@media screen and (max-width: 900px) {
+    .sobre {
+        flex-direction: column;
+        padding-inline: 50px;
+    }
+
+    .sobre-img {
+        padding-bottom: 50px;
+    }
+
+    .sobre-info {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .perfil-info {
+        width: 80%;
+    }
+}
+
+
+@media screen and (max-width: 400px) {
+    .perfil-info {
+        width: 90%;
+    }
+
+    .sobre {
+        padding-inline: 30px;
+    }    
+
+    .sobre-img img {
+        width: 200px;
+    }
+}
+
+@media screen and (max-width:560px) {
+    .logo-img {
+        padding-right: 7px;
+        width: 35px;
+        margin-bottom: 5px;
+    }
+    
+    .logo-txt{
+        width: 120px;
+        margin-top: 5px;
+    }
+
+    .sobre-dados {
+        flex-direction: column;
+    }
+
+    .sobre-dados div {
+        padding-top: 30px;
+    }
+}

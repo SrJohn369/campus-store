@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;500;600;700;900&family=Open+Sans:wght@300;400;500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+    text-decoration: none;
+}
+
+body, html {
+    background-color: #08244c;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    background-color: lavender;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+}
+
+.msg {
+    text-align: center;
+}
+
+.msg h1 {
+    color: #08244c;
+}
+
+.msg p {
+    font-size: 1.5rem;
+}
+
+.btn {
+    margin-top: 20px;
+}
+
+.btn a {
+    margin-top: 0.5rem;
+    border: none;
+    background-color: #08244C;
+    padding: 0.6rem 5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #fff;
+    width: 4rem;
+    font-size: 1.3rem;
+    transition: 0.5s;
+}
+
+.btn a:hover {
+    background-color: #08244ce9;
+}
+
+
+@media screen and (max-width: 1024px) {
+    .container {
+        width: 100%;
+        height: 100vh;
+    }
+
+    .btn a {
+        padding: 0.8rem 5rem;
+    }
+}
