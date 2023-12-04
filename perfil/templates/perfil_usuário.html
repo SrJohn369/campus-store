@@ -2,6 +2,10 @@
 
 {% load static %}
 
+{% block cssblock %}
+    <link rel="stylesheet" href="{% static 'css/perfil.css' %}">
+{% endblock %}
+
 {% block content %}
 
 <div class="container-perfil">
@@ -28,7 +32,11 @@
     <div class="perfil-info">
         <div class="frame1">
             <div class="img-perfil">
-                <img src="{{data_user.foto.url}}" alt="foto do usuário">
+                <img src="{{data_user.foto.url}}" alt="foto do usuário" id="profile-pic">
+                <div class="btn">
+                    <label for="input-file"><i class="fa-solid fa-camera"></i></label>
+                    <input type="file" accept="img/jpeg, img/jpg, img/png" style="display: none;" id="input-file">
+                </div>
             </div>
 
             <div>
@@ -60,5 +68,27 @@
         </div>
     </div>
 </div>
+
+<script>
+    // Função para verificar se há uma imagem salva no armazenamento local
+    function checkLocalStorage() {
+        let savedImage = localStorage.getItem('profileImage');
+        if (savedImage) {
+            profilePic.src = savedImage;
+        }
+    }
+
+    let profilePic = document.getElementById('profile-pic');
+    let inputFile = document.getElementById('input-file');
+
+    // Verificar se há uma imagem salva ao carregar a página
+    document.addEventListener('DOMContentLoaded', checkLocalStorage);
+
+    inputFile.onchange = function() {
+        // Atualizar a imagem e salvar o caminho no armazenamento local
+        profilePic.src = URL.createObjectURL(inputFile.files[0]);
+        localStorage.setItem('profileImage', profilePic.src);
+    }
+</script>
 
 {% endblock  %}
