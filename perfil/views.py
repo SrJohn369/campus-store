@@ -5,6 +5,9 @@ from django.contrib.auth import logout
 from cadastro.models import Usuario
 
 
+app_name = 'perfil'
+
+
 # Create your views here.
 @login_required(login_url='login:login_usuario')
 def perfil(request):
@@ -18,3 +21,7 @@ def logout_usuario(request):
     logout(request)
     return redirect('home:home')
             
+
+# @login_required(login_url='login:login_usuario')
+# def favoritos(request):
+#     return 
