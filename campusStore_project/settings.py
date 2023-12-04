@@ -16,10 +16,7 @@ SECRET_KEY = 'django-insecure-#c)9*@frn%%dpp5a4a(u-xcl7jq8=dr!$#06!w#nr@q+o4(ctf
 DEBUG = True
 
 ALLOWED_HOSTS = ["owl-campus-store.onrender.com", "0.0.0.0:8000"]
-CORS_ALLOWED_ORIGINS = [
-    "owl-campus-store.onrender.com",
-]
-
+CSRF_TRUSTED_ORIGINS = ["https://owl-campus-store.onrender.com", ]
 
 # Application definition
 
