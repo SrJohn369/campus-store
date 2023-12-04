@@ -10,9 +10,11 @@ class Vendedor(User):
                              upload_to='foto_vendedor')
     negocio = models.CharField(max_length=30, blank=False)
     
-    
     def __str__(self):
         return f'{self.nome} {self.sobrenome}'
+
+    class Meta:
+        verbose_name = 'Usuário Vendedor'
     
     
 class Produto(models.Model):
@@ -29,6 +31,7 @@ class Produto(models.Model):
     
     def __str__(self):
         return f'{self.nome_prod} - R${self.preco}'
+
     
     
 class Servico(models.Model):
@@ -51,4 +54,7 @@ class Usuario(User):
 
     def __str__(self) -> str:
         return f'{self.first_name} {self.last_name}'
+
+    class Meta:
+        verbose_name = 'Usuário Comprador'
     
