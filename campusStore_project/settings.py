@@ -17,10 +17,12 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["owl-campus-store.onrender.com", "0.0.0.0:8000"]
 CORS_ALLOWED_ORIGINS = [
-    "https://owl-campus-store.onrender.com",
+    "https://owl-campus-store.onrender.com", 
 ]
 CORS_ALLOW_ALL_ORIGINS = True
-
+CSRF_TRUSTED_ORIGINS = [
+    "https://owl-campus-store.onrender.com", 
+]
 
 # Application definition
 
