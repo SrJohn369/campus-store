@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.views.decorators.csrf import csrf_protect
 from django.http import HttpResponse
 from .models import *
 
@@ -11,6 +12,7 @@ def cadastro_sucesso(request):
     return render(request, 'sucesso.html')
     
 
+@csrf_protect
 def cadastro_usuario(request):
     if request.method == 'GET':
         return render(request, 'usuario_cadastrar.html')
@@ -36,6 +38,7 @@ def cadastro_usuario(request):
         return redirect('cadastro:sucesso')
     
     
+@csrf_protect
 def cadastro_vendedor(request):
     if request.method == 'GET':
         return render(request, 'vendedor_cadastrar.html')
