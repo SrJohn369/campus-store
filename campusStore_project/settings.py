@@ -16,6 +16,11 @@ SECRET_KEY = 'django-insecure-#c)9*@frn%%dpp5a4a(u-xcl7jq8=dr!$#06!w#nr@q+o4(ctf
 DEBUG = True
 
 ALLOWED_HOSTS = ["owl-campus-store.onrender.com", "0.0.0.0:8000"]
+CORS_ALLOWED_ORIGINS = [
+    "https://owl-campus-store.onrender.com",
+]
+CORS_ALLOW_ALL_ORIGINS = True
+
 
 # Application definition
 
@@ -30,6 +35,7 @@ INSTALLED_APPS = [
     'cadastro.apps.CadastroConfig',
     'login.apps.LoginConfig',
     'perfil.apps.PerfilConfig',
+    'corsheaders'
 ]
 
 MIDDLEWARE = [
@@ -40,6 +46,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware'
 ]
 
 ROOT_URLCONF = 'campusStore_project.urls'
