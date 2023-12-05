@@ -5,6 +5,6 @@ app_name = 'perfil'
 
 urlpatterns = [
     path("", views.perfil, name="perfil"),
-    path('logout/', views.logout_usuario, name="logout_usuario")
+    path('logout/', views.logout_usuario, name="logout_usuario"),
     path('favoritos', views.favoritos, name="favoritos")
 ]

@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 from cadastro.models import Usuario
+from .models import *
 
 
 app_name = 'perfil'
@@ -14,7 +15,8 @@ def perfil(request):
     user = request.user.username
     data_user = Usuario.objects.get(username=user)
     
-    if request.method == 'GET': return render(request, 'perfil_usuário.html', {'data_user': data_user})
+    if request.method == 'GET':
+        return render(request, 'perfil_usuário_perfil.html', {'data_user': data_user})
 
 @login_required(login_url='login:login_usuario')
 def logout_usuario(request):
@@ -22,6 +24,8 @@ def logout_usuario(request):
     return redirect('home:home')
             
 
-# @login_required(login_url='login:login_usuario')
-# def favoritos(request):
-#     return 
+@login_required(login_url='login:login_usuario')
+def favoritos(request):
+    usuario = request.user.id
+    data_favoritos = Favorito.objects.get(usuario_id=usuario)
+    return render(request, 'perfil_usuário_favoritos.html', {'dat_favritos': data_favoritos})

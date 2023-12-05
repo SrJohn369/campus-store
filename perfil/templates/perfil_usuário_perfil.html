@@ -1,0 +1,65 @@
+{% extends "perfil_usuário.html" %}
+
+{% block abas %}
+    <div class="perfil-info">
+        <div class="frame1">
+            <div class="img-perfil">
+                <img src="{{data_user.foto.url}}" alt="foto do usuário" id="profile-pic">
+                <div class="btn">
+                    <label for="input-file"><i class="fa-solid fa-camera"></i></label>
+                    <input type="file" accept="img/jpeg, img/jpg, img/png" style="display: none;" id="input-file">
+                </div>
+            </div>
+
+            <div>
+                <h2>{{data_user.first_name}} {{data_user.last_name}}</h2>
+                <a href="#">Editar</a>
+            </div>
+        </div>
+        <div class="frame2">
+            <div class="lin">
+                <div class="text">
+                    <h5>Nome:</h5>
+                    <p>{{data_user.first_name}}</p>
+                </div>
+                <div class="text">
+                    <h5>Sobrenome:</h5>
+                    <p>{{data_user.last_name}}</p>
+                </div>
+            </div>
+            <div class="lin">
+                <div class="text">
+                    <h5>E-mail:</h5>
+                    <p>{{data_user.username}}</p>
+                </div>
+                <div class="text">
+                    <h5>Telefone:</h5>
+                    <p>{{data_user.telefone}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock abas %}
+{% block scripts %}
+    <script>
+        // Função para verificar se há uma imagem salva no armazenamento local
+        function checkLocalStorage() {
+            let savedImage = localStorage.getItem('profileImage');
+            if (savedImage) {
+                profilePic.src = savedImage;
+            }
+        }
+
+        let profilePic = document.getElementById('profile-pic');
+        let inputFile = document.getElementById('input-file');
+
+        // Verificar se há uma imagem salva ao carregar a página
+        document.addEventListener('DOMContentLoaded', checkLocalStorage);
+
+        inputFile.onchange = function() {
+            // Atualizar a imagem e salvar o caminho no armazenamento local
+            profilePic.src = URL.createObjectURL(inputFile.files[0]);
+            localStorage.setItem('profileImage', profilePic.src);
+        }
+    </script>
+{% endblock scripts %}

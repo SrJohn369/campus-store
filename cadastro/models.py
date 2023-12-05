@@ -11,7 +11,7 @@ class Vendedor(User):
     negocio = models.CharField(max_length=30, blank=False)
     
     def __str__(self):
-        return f'{self.nome} {self.sobrenome}'
+        return f'{self.first_name} {self.last_name}'
 
     class Meta:
         verbose_name = 'Usuário Vendedor'

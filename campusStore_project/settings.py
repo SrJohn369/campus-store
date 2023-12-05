@@ -15,7 +15,7 @@ SECRET_KEY = 'django-insecure-#c)9*@frn%%dpp5a4a(u-xcl7jq8=dr!$#06!w#nr@q+o4(ctf
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["owl-campus-store.onrender.com", "0.0.0.0:8000"]
+ALLOWED_HOSTS = ["*"]
 CORS_ALLOWED_ORIGINS = [
     "https://owl-campus-store.onrender.com", 
 ]
@@ -88,6 +88,10 @@ DATABASES = {
 # DATABASES['default'] = dj_database_url.parse(
 #     "postgres://johntester:yTz3LPvhtlp0qd72XhG9eaLv2gio0ysG@dpg-clkj52maov6s7387qkd0-a.oregon-postgres.render.com/dbtest_pud2"
 # )
+DATABASES['default'] = {
+    'ENGINE': 'django.db.backends.sqlite3',
+    'NAME': BASE_DIR / 'sqlite.db'
+}
 
 
 # Password validation
