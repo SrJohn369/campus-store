@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
-from cadastro.models import Usuario
+from cadastro.models import Usuario, Vendedor
 from .models import *
 
 
@@ -26,8 +26,15 @@ def logout_usuario(request):
 
 @login_required(login_url='login:login_usuario')
 def favoritos(request):
-    usuario = request.user.id
-    print(usuario)
-    data_favoritos = Favorito.objects.filter(usuario_id=usuario)
-    print()
-    return render(request, 'perfil_usuário_favoritos.html', {'data_favoritos': data_favoritos})
+    if Usuario.objects.filter(username=request.user.username).exists():
+        usuario = request.user.id
+        print(usuario)
+        data_favoritos = Favorito.objects.filter(usuario_id=usuario)
+        print()
+        return render(request, 'perfil_usuário_favoritos.html', {'data_favoritos': data_favoritos})
+    elif Vendedor.objects.filter(username=request.user.username).exists():
+        usuario = request.user.id
+        print(usuario)
+        data_favoritos = Favorito.objects.filter(usuario_id=usuario)
+        print()
+        return render(request, 'perfil_usuário_favoritos.html', {'data_favoritos': data_favoritos})
