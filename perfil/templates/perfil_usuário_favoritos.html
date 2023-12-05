@@ -1,4 +1,8 @@
 {% extends "perfil_usuário.html" %}
 {% block abas %}
-    <div>{{'data_favoritos'}}</div>
+    
+    {% for data in data_favoritos %}
+        {{data.usuario}}
+    {% endfor %}
+        
 {% endblock abas %}
