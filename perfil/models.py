@@ -3,8 +3,8 @@ from cadastro.models import *
 
 class Favorito(models.Model):
     usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
-    produto = models.ForeignKey(Produto, on_delete=models.CASCADE)
-    vendedor = models.ForeignKey(Vendedor, on_delete=models.CASCADE)
+    produto_favorito = models.ForeignKey(Produto, null=True, blank=True, on_delete=models.CASCADE)
+    vendedor_favorito = models.ForeignKey(Vendedor, null=True, blank=True, on_delete=models.CASCADE)
     favoritado_em = models.DateTimeField(auto_now_add=True)
 
 class Avaliacao(models.Model):
