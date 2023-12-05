@@ -27,5 +27,7 @@ def logout_usuario(request):
 @login_required(login_url='login:login_usuario')
 def favoritos(request):
     usuario = request.user.id
-    data_favoritos = Favorito.objects.get(usuario_id=usuario)
-    return render(request, 'perfil_usuário_favoritos.html', {'dat_favritos': data_favoritos})
+    print(usuario)
+    data_favoritos = Favorito.objects.filter(usuario_id=usuario)
+    print()
+    return render(request, 'perfil_usuário_favoritos.html', {'data_favoritos': data_favoritos})
