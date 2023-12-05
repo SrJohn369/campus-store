@@ -38,3 +38,8 @@ def favoritos(request):
         data_favoritos = Favorito.objects.filter(usuario_id=usuario)
         print()
         return render(request, 'perfil_usuário_favoritos.html', {'data_favoritos': data_favoritos})
+
+
+@login_required(login_url='login:login_usuario')
+def alterar_foto(request):
+    pass
