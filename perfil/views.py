@@ -32,9 +32,12 @@ def favoritos(request):
         
         try:    
             data_favoritos = Favorito.objects.filter(usuario_id=usuario)
-            return render(request, 'perfil_usuário_favoritos.html', {'data_favoritos': data_favoritos})
+            if data_favoritos:
+                return render(request, 'perfil_usuário_favoritos.html', {'data_favoritos': data_favoritos})
+            else:
+                return render(request, 'perfil_usuário_favoritos.html', {'data_favoritos': 0})
         except:
-            return render(request, 'perfil_usuário_favoritos.html', {'data_favoritos': ''})
+            return render(request, 'perfil_usuário_favoritos.html', {'data_favoritos': 0})
         
     elif Vendedor.objects.filter(username=request.user.username).exists():
         usuario = request.user.id
@@ -90,14 +93,20 @@ def carrinho(request):
         
         try:
             data_carrinho = Carrinho.objects.filter(usuario=request.user.id)
-            dict_data['data_carrinho'] = data_carrinho
+            if data_carrinho:
+                dict_data['data_carrinho'] = data_carrinho
+            else:
+                dict_data['data_carrinho'] = []
         except:
-            dict_data['data_carrinho'] = ''
+            dict_data['data_carrinho'] = []
         try:
             data_compras = Compra.objects.filter(usuario=request.user.id)
-            dict_data['data_compras'] = data_compras
+            if data_compras:
+                dict_data['data_compras'] = data_compras
+            else:
+                dict_data['data_compras'] = []
         except:
-            dict_data['data_compras'] = ''
+            dict_data['data_compras'] = []
         
         return render(request, 'perfil_usuário_carrinho.html', dict_data)
     
