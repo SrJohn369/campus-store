@@ -1,12 +1,9 @@
 {% extends "perfil_usuário.html" %}
 {% load static %}
 
-{% block cssblock %} 
-    <link rel="stylesheet" href="{% static 'css/carrinho.css'%}">
-{% endblock cssblock %}
 {% block abas %}
 
-<main class="frame2">
+<main>
     <div class="page-title">
         Seu Carrinho
     </div>
@@ -27,7 +24,7 @@
                 </thead>
 
                 <tbody> <!--Conteudo dos produtos-->
-                    {% if data_carrinho != '' %}
+                    {% if data_carrinho != 0 or data_compras != 0 %}
                     {% for data in data_carrinho %}
                         <tr>
                             <td>
@@ -52,7 +49,27 @@
                         </tr>
                     {% endfor %}
                     {% else %}
-                        <div style="margin: auto;">NÃO HÁ PRODUTOS NO CARRINHO</div>
+                    <tr>
+                        <td>
+                            <div class="product">
+                                <img src="https://picsum.photos/200" alt="">
+                                <div class="info">
+                                    <div class="name">{{data_carrinho.produto.nome_prod}}</div>
+                                    <div class="vendedor">Nome do Vendedor</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="qtd">
+                                <button><i class='bx bx-minus'></i></button>
+                                <span class="maincolor">2</span>
+                                <button><i class='bx bx-plus'></i></button>
+                            </div>
+                        </td>
+                        <td class="maincolor">R$ 10,00</td>
+                        <td class="maincolor">R$ 20,00</td>
+                        <td><button class="remove"><i class='bx bx-trash'></i></i></button></td>
+                    </tr>
                     {% endif %}
                 </tbody>
             </table>

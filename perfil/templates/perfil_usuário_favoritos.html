@@ -1,6 +1,7 @@
 {% extends "perfil_usuário.html" %}
 {% block abas %}
-    {% if data_favoritos != '' %}
+
+    {% if data_favoritos != 0 %}
         {% for data in data_favoritos %}
             {{data.usuario}}
         {% endfor %}
