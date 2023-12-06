@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 from cadastro.models import Usuario, Vendedor
 from .models import *
+import os
 
 
 app_name = 'perfil'
@@ -60,18 +61,25 @@ def editar_informacoes(request):
                 request.POST.get('text-sobrenome'),
                 request.POST.get('text-email'),
                 request.POST.get('text-telefone'),
-                request.POST.get('input-file')
+                request.FILES.get('input-file')
             ]
             
             user = Usuario.objects.get(username=request.user.username)
             
+            # Remove foto antiga
+            caminho_foto_antiga = user.foto.path
+            print(caminho_foto_antiga)
+            if os.path.exists(caminho_foto_antiga):
+                os.remove(caminho_foto_antiga)
+            
+            # Atualiza dados
             user.first_name = list_data[0]
             user.last_name = list_data[1]
             user.email = list_data[2]
             user.telefone = list_data[3]
             user.foto = list_data[4]
             
-            user.save()
+            user.save() 
             
             return render(request, 'sucesso_perfil.html')
             

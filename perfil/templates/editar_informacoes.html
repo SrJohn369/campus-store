@@ -2,7 +2,7 @@
 {% block abas %}
     
     <div class="perfil-info">
-        <form method="POST">{% csrf_token %}
+        <form method="POST" enctype="multipart/form-data">{% csrf_token %}
             <div class="frame1">
                 <div class="img-perfil">
                     <img src="{{data_user.foto.url}}" alt="foto do usuário" id="profile-pic">
