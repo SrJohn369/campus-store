@@ -30,9 +30,12 @@ def favoritos(request):
     if Usuario.objects.filter(username=request.user.username).exists():
         usuario = request.user.id
         print(usuario)
-        data_favoritos = Favorito.objects.filter(usuario_id=usuario)
-        print()
-        return render(request, 'perfil_usuário_favoritos.html', {'data_favoritos': data_favoritos})
+        try:    
+            data_favoritos = Favorito.objects.filter(usuario_id=usuario)
+            print()
+            return render(request, 'perfil_usuário_favoritos.html', {'data_favoritos': data_favoritos})
+        except:
+            return render(request, 'perfil_usuário_favoritos.html', {'data_favoritos': ''})
     elif Vendedor.objects.filter(username=request.user.username).exists():
         usuario = request.user.id
         print(usuario)

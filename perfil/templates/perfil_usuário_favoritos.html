@@ -1,8 +1,11 @@
 {% extends "perfil_usuário.html" %}
 {% block abas %}
-    
-    {% for data in data_favoritos %}
-        {{data.usuario}}
-    {% endfor %}
+    {% if data_favoritos != '' %}
+        {% for data in data_favoritos %}
+            {{data.usuario}}
+        {% endfor %}
+    {% else %}
+        <div style="margin: auto;">SEM FAVORITOS</div>
+    {% endif %}
         
 {% endblock abas %}
