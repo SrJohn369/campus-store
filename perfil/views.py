@@ -29,24 +29,17 @@ def logout_usuario(request):
 def favoritos(request):
     if Usuario.objects.filter(username=request.user.username).exists():
         usuario = request.user.id
-        print(usuario)
+        
         try:    
             data_favoritos = Favorito.objects.filter(usuario_id=usuario)
-            print()
             return render(request, 'perfil_usuário_favoritos.html', {'data_favoritos': data_favoritos})
         except:
             return render(request, 'perfil_usuário_favoritos.html', {'data_favoritos': ''})
+        
     elif Vendedor.objects.filter(username=request.user.username).exists():
         usuario = request.user.id
-        print(usuario)
         data_favoritos = Favorito.objects.filter(usuario_id=usuario)
-        print()
         return render(request, 'perfil_usuário_favoritos.html', {'data_favoritos': data_favoritos})
-
-
-@login_required(login_url='login:login_usuario')
-def alterar_foto(request):
-    pass
 
 
 @login_required(login_url='login:login_usuario')
@@ -71,7 +64,6 @@ def editar_informacoes(request):
             
             # Remove foto antiga
             caminho_foto_antiga = user.foto.path
-            print(caminho_foto_antiga)
             if os.path.exists(caminho_foto_antiga):
                 os.remove(caminho_foto_antiga)
             
@@ -88,7 +80,31 @@ def editar_informacoes(request):
             
         elif Vendedor.objects.filter(username=request.user.username).exists():
             pass
+
+
+@login_required(login_url='login:login_usuario')
+def carrinho(request):
+    if request.method == 'GET':
         
+        dict_data = {} 
         
+        try:
+            data_carrinho = Carrinho.objects.filter(usuario=request.user.id)
+            dict_data['data_carrinho'] = data_carrinho
+        except:
+            dict_data['data_carrinho'] = ''
+        try:
+            data_compras = Compra.objects.filter(usuario=request.user.id)
+            dict_data['data_compras'] = data_compras
+        except:
+            dict_data['data_compras'] = ''
+        
+        return render(request, 'perfil_usuário_carrinho.html', dict_data)
+    
+    if request.method == 'POST':
+        pass
+
+        
+@login_required(login_url='login:login_usuario')      
 def sucesso(request):
     if request.method == 'GET': return render(request, 'sucesso.html')
