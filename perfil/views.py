@@ -43,3 +43,41 @@ def favoritos(request):
 @login_required(login_url='login:login_usuario')
 def alterar_foto(request):
     pass
+
+
+@login_required(login_url='login:login_usuario')
+def editar_informacoes(request):
+    user = request.user.username
+    data_user = Usuario.objects.get(username=user)
+
+    if request.method == 'GET':
+        return render(request, 'editar_informacoes.html', {'data_user': data_user})
+    
+    elif request.method == 'POST':
+        if Usuario.objects.filter(username=request.user.username).exists():
+            list_data = [
+                request.POST.get('text-nome'),
+                request.POST.get('text-sobrenome'),
+                request.POST.get('text-email'),
+                request.POST.get('text-telefone'),
+                request.POST.get('input-file')
+            ]
+            
+            user = Usuario.objects.get(username=request.user.username)
+            
+            user.first_name = list_data[0]
+            user.last_name = list_data[1]
+            user.email = list_data[2]
+            user.telefone = list_data[3]
+            user.foto = list_data[4]
+            
+            user.save()
+            
+            return render(request, 'sucesso_perfil.html')
+            
+        elif Vendedor.objects.filter(username=request.user.username).exists():
+            pass
+        
+        
+def sucesso(request):
+    if request.method == 'GET': return render(request, 'sucesso.html')
