@@ -15,7 +15,7 @@
             <table> <!--Listagem de produtos-->
                 <thead>
                     <tr> <!--Cabeçalho dos produtos-->
-                        <th>Produto/Serviço</th>
+                        <th>Produto</th>
                         <th>Quantidade</th>
                         <th>Preço</th>
                         <th>Total</th>
@@ -24,7 +24,7 @@
                 </thead>
 
                 <tbody> <!--Conteudo dos produtos-->
-                    {% if data_carrinho != 0 or data_compras != 0 %}
+                    {% if data_carrinho or data_compras %}
                     {% for data in data_carrinho %}
                         <tr>
                             <td>
@@ -50,25 +50,7 @@
                     {% endfor %}
                     {% else %}
                     <tr>
-                        <td>
-                            <div class="product">
-                                <img src="https://picsum.photos/200" alt="">
-                                <div class="info">
-                                    <div class="name">{{data_carrinho.produto.nome_prod}}</div>
-                                    <div class="vendedor">Nome do Vendedor</div>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="qtd">
-                                <button><i class='bx bx-minus'></i></button>
-                                <span class="maincolor">2</span>
-                                <button><i class='bx bx-plus'></i></button>
-                            </div>
-                        </td>
-                        <td class="maincolor">R$ 10,00</td>
-                        <td class="maincolor">R$ 20,00</td>
-                        <td><button class="remove"><i class='bx bx-trash'></i></i></button></td>
+                        <td colspan="4">NÃO HÁ PRODUTOS EM SEU CARRINHO</td>
                     </tr>
                     {% endif %}
                 </tbody>
@@ -77,14 +59,18 @@
         <aside>
             <div class="box">
                 <div class="title">
-                    <h1>Resumo da Compra:</h1>
+                    <h2>Resumo da Compra:</h2>
                 </div>
                 <div class="box-resumo">
-                    <div class="resumo-info maincolor">
-                        <div><span>Itens:</span><span>2</span></div>
-                        <div><span>Total:</span><span>R$ 20,00</span></div>
-                    </div>
-                    <button>Comprar</button>
+                    <form method="POST">{% csrf_token %}
+                        <div class="resumo-info maincolor">
+                            <label for="itens">Itens:</label>
+                            <input type="number" value="0" style="background: none; border: none;" name="itens" id="itens" disabled>
+                            <label for="total">Total:</label>
+                            <input type="number" value="0" style="background: none; border: none;" name="total" id="total" disabled>
+                            <button type="submit">Comprar</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </aside>
