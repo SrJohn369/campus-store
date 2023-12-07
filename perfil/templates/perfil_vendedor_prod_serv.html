@@ -1,0 +1,16 @@
+{% extends "perfil_vendedor.html" %}
+{% block abas %}
+
+    {% if data_produtos %}
+        {% for data in data_produtos %}
+            <div style="margin: auto;">produto{{forloop.counter}}</div>
+        {% endfor %}
+    {% else %}
+        <div style="margin: auto;">NÃO HÁ PRODUTOS CADASTRADOS</div>
+    {% endif %}
+
+{% endblock abas %}
+
+
+
+
