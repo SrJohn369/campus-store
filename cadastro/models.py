@@ -27,7 +27,7 @@ class Produto(models.Model):
         null=False, default='', upload_to='foto_produto')
     
     
-    vedendor = models.ForeignKey(Vendedor, on_delete=models.CASCADE)
+    vendedor = models.ForeignKey(Vendedor, on_delete=models.CASCADE)
     
     
     def __str__(self):
