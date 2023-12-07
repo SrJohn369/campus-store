@@ -129,7 +129,10 @@ def carrinho(request):
 @login_required(login_url='login:login_usuario')
 def produto_servico(request):
     if request.method == 'GET':
-        user = Vendedor.objects.filter(username=request.user.username)
+        data_produtos = Produto.objects.filter(vedendor_id=request.user.id)
+
+        return render(request, "perfil_vendedor_prod_serv.html", {'data_produtos': data_produtos})
+
         
 
         
