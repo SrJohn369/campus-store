@@ -17,7 +17,7 @@ def cadastro_usuario(request):
     if request.method == 'GET':
         return render(request, 'usuario_cadastrar.html')
     
-    elif request.method == 'POST':
+    if request.method == 'POST':
         nome = request.POST.get('nome')
         sobrenome = request.POST.get('sobrenome')
         matricula = request.POST.get('matricula')
@@ -43,30 +43,29 @@ def cadastro_vendedor(request):
     if request.method == 'GET':
         return render(request, 'vendedor_cadastrar.html')
     
-    elif request.method == 'POST':
-        nome = request.POST.get('vendedor_nome')
-        sobrenome = request.POST.get('vendedor_sobrenome')
-        matricula = request.POST.get('vendedor_matricula')
-        email = request.POST.get('vendedor_email')
-        telefone = request.POST.get('vendedor_telefone')
-        nome_negocio = request.POST.get('vendedor_nome_negocio')
-        descricao_negocio = request.POST.get('vendedor_descricao_negocio')
-        senha = request.POST.get('vendedor_senha')
+    if request.method == 'POST':
+        nome = request.POST.get('firstname')
+        sobrenome = request.POST.get('lastname')
+        matricula = request.POST.get('matricula')
+        email = request.POST.get('email')
+        telefone = request.POST.get('telefone')
+        nome_negocio = request.POST.get('nome-negocio')
+        descricao_negocio = request.POST.get('descricao_negocio')
+        senha = request.POST.get('senha')
 
-        vendedor = Vendedor(
-            firstname = nome,
-            lastname = sobrenome,
+        vendedor = Vendedor.objects.create_user(
+            first_name = nome,
+            last_name = sobrenome,
             matricula = matricula,
             email = email,
             telefone = telefone,
-            nome_negocio = nome_negocio,
-            descricao_negocio = descricao_negocio,
-            password = senha
+            negocio = nome_negocio,
+            username= email,
+            descricao = descricao_negocio,
+            password = senha,
         )
-        try:
-            vendedor.save()
-            
-            # confirmar dados
-            return ('cadastro:sucesso')
-        except:
-            return HttpResponse('ERRO')
+        
+        vendedor.save() 
+        # confirmar dados
+        return redirect('cadastro:sucesso')
+        

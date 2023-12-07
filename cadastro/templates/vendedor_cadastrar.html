@@ -13,21 +13,21 @@
 <body>
     <div class="container">
         <div class="form">
-            <form action="#">
-                <div class="form-header">
-                    <div class="title">
-                        <a href="{% url 'cadastro:cadastro' %}"><i class="fa-solid fa-arrow-left"></i></a> <h1>Cadastre-se</h1>
-                    </div>
+            <form method='POST'>{% csrf_token %}
+            <div class="form-header">
+                <div class="title">
+                    <a href="{% url 'cadastro:cadastro' %}"><i class="fa-solid fa-arrow-left"></i></a> <h1>Cadastre-se</h1>
                 </div>
-
+            </div>
+            
                 <div class="input-group">
                     <div class="input-box">
                         <label for="firstname">Nome</label>
                         <input type="text" name="firstname" id="firstname" placeholder="Digite seu primeiro nome" required>
                     </div>
                     <div class="input-box">
-                        <label for="sobrenome">Sobrenome</label>
-                        <input type="text" name="sobrenome" id="sobrenome" placeholder="Digite seu sobrenome" required>
+                        <label for="lastname">Sobrenome</label>
+                        <input type="text" name="lastname" id="lastname" placeholder="Digite seu sobrenome" required>
                     </div>
                     <div class="input-box">
                         <label for="matricula">Matrícula</label>

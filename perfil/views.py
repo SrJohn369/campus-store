@@ -14,10 +14,20 @@ app_name = 'perfil'
 @login_required(login_url='login:login_usuario')
 def perfil(request):
     user = request.user.username
-    data_user = Usuario.objects.get(username=user)
     
-    if request.method == 'GET':
-        return render(request, 'perfil_usuário_perfil.html', {'data_user': data_user})
+    # verificar usuario comprador
+    if Usuario.objects.filter(username=user).exists():
+        data_user = Usuario.objects.get(username=user)
+        
+        if request.method == 'GET':
+            return render(request, 'perfil_usuário_perfil.html', {'data_user': data_user})
+        
+    # verificar usuario comprador
+    elif Vendedor.objects.filter(username=user).exists():
+        data_user = Vendedor.objects.get(username=user)
+        
+        if request.method == 'GET':
+            return render(request, 'perfil_vendedor_perfil.html', {'data_user': data_user})
 
 @login_required(login_url='login:login_usuario')
 def logout_usuario(request):
@@ -54,6 +64,7 @@ def editar_informacoes(request):
         return render(request, 'editar_informacoes.html', {'data_user': data_user})
     
     elif request.method == 'POST':
+        # Editar info do Usuario comprador
         if Usuario.objects.filter(username=request.user.username).exists():
             list_data = [
                 request.POST.get('text-nome'),
@@ -80,7 +91,8 @@ def editar_informacoes(request):
             user.save() 
             
             return render(request, 'sucesso_perfil.html')
-            
+        
+        # Editar info do usuário vendedor
         elif Vendedor.objects.filter(username=request.user.username).exists():
             pass
 
@@ -112,6 +124,13 @@ def carrinho(request):
     
     if request.method == 'POST':
         pass
+
+
+@login_required(login_url='login:login_usuario')
+def produto_servico(request):
+    if request.method == 'GET':
+        user = Vendedor.objects.filter(username=request.user.username)
+        
 
         
 @login_required(login_url='login:login_usuario')      

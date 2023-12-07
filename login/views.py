@@ -22,4 +22,4 @@ def login_usuario(request):
         else:
             return HttpResponse(f'Senha incorreta \n {login_email} - {login_senha} \n {user}')
         
-        
+

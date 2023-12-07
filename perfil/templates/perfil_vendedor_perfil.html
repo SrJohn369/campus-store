@@ -1,0 +1,51 @@
+{% extends "perfil_vendedor.html" %}
+{% block abas %}
+
+<div class="perfil-info">
+        <div class="frame1">
+            <div class="img-perfil">
+                <img src="{{data_user.foto.url}}" alt="foto do perfil">
+            </div>
+
+            <div>
+                <h2>{{data_user.first_name}} {{data_user.last_name}}</h2>
+                <a href="#">Editar</a>
+            </div>
+        </div>
+        <div class="frame2">
+            <div class="lin">
+                <div class="text">
+                    <h5>Nome:</h5>
+                    <p>{{data_user.first_name}}</p>
+                </div>
+                <div class="text">
+                    <h5>Sobrenome:</h5>
+                    <p>{{data_user.last_name}}</p>
+                </div>
+            </div>
+            <div class="lin">
+                <div class="text">
+                    <h5>E-mail:</h5>
+                    <p>{{data_user.email}}</p>
+                </div>
+                <div class="text">
+                    <h5>Telefone:</h5>
+                    <p>{{data_user.telefone}}</p>
+                </div>
+            </div>
+            <div class="lin">
+                <div class="text">
+                    <h5>Nome do Negócio</h5>
+                    <p>{{data_user.negocio}}</p>
+                </div>
+                <div>
+                    <h5>Descrição do Negócio</h5>
+                    <div style="text-align: start;" class="desc">
+                        {{data_user.descricao}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock abas %}

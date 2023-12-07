@@ -9,12 +9,13 @@ class Vendedor(User):
     foto = models.ImageField(default='foto_vendedor/imagem_usuario_padrão.jpg',
                              upload_to='foto_vendedor')
     negocio = models.CharField(max_length=30, blank=False)
+    descricao = models.TextField(max_length=500, blank=True, default='Descrição do seu negócio.', null=True)
     
     def __str__(self):
         return f'{self.first_name} {self.last_name}'
 
     class Meta:
-        verbose_name = 'Usuário Vendedor'
+        verbose_name = 'Usuários Vendedore'
     
     
 class Produto(models.Model):
@@ -56,5 +57,5 @@ class Usuario(User):
         return f'{self.first_name} {self.last_name}'
 
     class Meta:
-        verbose_name = 'Usuário Comprador'
+        verbose_name = 'Usuários Compradore'
     
