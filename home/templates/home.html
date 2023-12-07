@@ -43,23 +43,7 @@
         <!--ITEMS-->
         <div class="row g-3"> <!--indicar q o layout vai ter 12 colunas/ g-3 => a sepaação entre as colunas vai ser entre 3 unidades-->
             {% for produto in data_protuto %}
-            <div class="col12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-                <div class="card text-center bg-light">
-                    <a href="#" class="position-absolute end-0 p-2 text-danger ">
-                        <i class="bi-suit-heart" style="font-size: 24px; line-height: 24px;"></i>
-                    </a>
-                    <div class="card-background-image" style="background-image: url('{{produto.foto_prod}}');"></div>
-                    <div class="card-body">
-                      <h5 class="card-title">{{produto.nome_prod}}</h5>
-                      <p class="card-text">{{produto.preco}}</p>
-                    </div>
-                    <div class="card-footer">
-                        <a href="#" class="btn btn-primary mt-2 d-block">
-                            Comprar
-                        </a>
-                    </div>
-                </div>
-            </div>    
+                    
             {% endfor %}
         </div>
 

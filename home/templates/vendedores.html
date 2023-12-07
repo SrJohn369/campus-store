@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    {% for vendedor in data_vendedor_all %}
+        <div style="margin: auto;">Vendedores --<br> quantidade:{{forloop.counter}}</div>
+    {% endfor %}
+
+{% endblock content %}

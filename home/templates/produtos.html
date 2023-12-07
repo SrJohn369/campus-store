@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    {% for produto in data_protuto_all %}
+        <div style="margin: auto;">Produtos --<br> quantidade:{{forloop.counter}}</div>
+    {% endfor %}
+
+{% endblock content %}
