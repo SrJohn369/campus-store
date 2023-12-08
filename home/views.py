@@ -1,10 +1,14 @@
 from django.shortcuts import render
 from cadastro.models import Produto, Vendedor
+from perfil.models import Avaliacao
+from django.db.models import Avg
 
 
 # Create your views here.
 def home(request):
-    data_produto = Produto.objects.all()
+    # dados do produto + média de estrelas
+    data_produto = Produto.objects.prefetch_related('avaliacao_set')\
+        .annotate(media_avaliacao=Avg('avaliacao__estrelas')).all()
     
     if request.method == 'GET': return render(request, "home.html", {'data_protuto': data_produto})
 
