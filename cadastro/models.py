@@ -22,7 +22,7 @@ class Vendedor(User):
 class Produto(models.Model):
     
     nome_prod = models.CharField(max_length=50, blank=False)
-    descricao = models.TextField(max_length=150, blank=False)
+    descricao = models.TextField(max_length=500, blank=False)
     preco = models.DecimalField(max_digits=9, decimal_places=2, blank=False)
     foto_prod = models.ImageField(
         null=False, default='', upload_to='foto_produto')
