@@ -30,7 +30,12 @@ class Compra(models.Model):
     Comprado_em = models.DateTimeField(auto_now_add=True)
     
     
-    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, blank=True, null=True)
+    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, blank=True, null=True, related_name='comprador')
     vendedor = models.ForeignKey(Vendedor, on_delete=models.CASCADE, blank=True, null=True)
     produto = models.ForeignKey(Produto, on_delete=models.CASCADE, null=True, blank=True)
     servico = models.ForeignKey(Servico, on_delete=models.CASCADE, null=True, blank=True)
+    
+class Parceria(models.Model):
+    
+    vendedor_parceiro = models.ForeignKey(Vendedor, on_delete=models.CASCADE, blank=True, null=True, related_name='parceiros')
+    vendedor = models.ForeignKey(Vendedor, on_delete=models.CASCADE, blank=True, null=True)

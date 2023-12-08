@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 class Vendedor(User):
+    
     matricula = models.CharField(primary_key=True, max_length=30, blank=False)
     telefone = models.CharField(max_length=20, blank=False, default='')
     foto = models.ImageField(default='foto_vendedor/imagem_usuario_padrão.jpg',
@@ -25,7 +26,6 @@ class Produto(models.Model):
     preco = models.DecimalField(max_digits=9, decimal_places=2, blank=False)
     foto_prod = models.ImageField(
         null=False, default='', upload_to='foto_produto')
-    
     
     vendedor = models.ForeignKey(Vendedor, on_delete=models.CASCADE)
     
