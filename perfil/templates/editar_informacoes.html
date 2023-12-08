@@ -6,11 +6,12 @@
             <div class="frame1">
                 <div class="img-perfil">
                     <img src="{{data_user.foto.url}}" alt="foto do usuário" id="profile-pic">
-                    <div class="btn">
-                        <label for="input-file"><i class="fa-solid fa-camera"></i></label>
-                        <input type="file" accept="img/jpeg, img/jpg, img/png" style="display: none;" id="input-file" name="input-file">
+                        <div class="btn">
+                            <label for="input-file"><i class="fa-solid fa-camera"></i></label>
+                            <input type="file" accept="img/jpeg, img/jpg, img/png" style="display: none;" id="input-file" name="input-file">
+                            <i class="fa-solid fa-times" id="remove-icon" style="display: none;"></i>
+                        </div>
                     </div>
-                </div>
                 <div>
                     <h2>{{data_user.first_name}} {{data_user.last_name}}</h2>
                 </div>
@@ -66,4 +67,5 @@
         localStorage.setItem('profileImage', profilePic.src);
     }
 </script>
+
 {% endblock scripts %}
