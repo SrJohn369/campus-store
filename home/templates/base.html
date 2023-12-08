@@ -38,11 +38,12 @@
                         <div class="dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Categoria</a>
                             <ul class="dropdown-menu">
-                            <li><a href="#" class="dropdown-item">produto 1</a></li>
-                            <li><a href="#" class="dropdown-item">produto 2</a></li>
-                            <li><a href="#" class="dropdown-item">produto 3</a></li>
-                            <li><a href="#" class="dropdown-item">produto 4</a></li>
-                            <li><a href="#" class="dropdown-item">produto 5</a></li>
+                                <li><a href="{% url 'home:pesquisa_categoria' categoria='Artesanato' %}" class="dropdown-item">Artesanato</a></li>
+                                <li><a href="{% url 'home:pesquisa_categoria' categoria='Doce' %}" class="dropdown-item">Doces</a></li>
+                                <li><a href="{% url 'home:pesquisa_categoria' categoria='Moda' %}" class="dropdown-item">Moda</a></li>
+                                <li><a href="{% url 'home:pesquisa_categoria' categoria='Salgado' %}" class="dropdown-item">Salgados</a></li>
+                                <li><a href="{% url 'home:pesquisa_categoria' categoria='Bebida' %}" class="dropdown-item">Bebidas</a></li>
+                                <li><a href="{% url 'home:pesquisa_categoria' categoria='Gelado' %}" class="dropdown-item">Gelados</a></li>
                             </ul>
                         </div>
                         <div id="redimencionar"></div>

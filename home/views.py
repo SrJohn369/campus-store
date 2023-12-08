@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from cadastro.models import Produto, Vendedor
-from perfil.models import Avaliacao
+from cadastro.models import Produto, Vendedor, Categoria
+from .models import *
 from django.db.models import Avg
 
 
@@ -14,7 +14,9 @@ def home(request):
 
 
 def produtos(request):
-    data_protuto_all = Produto.objects.all()
+    # dados do produto + média de estrelas
+    data_protuto_all = Produto.objects.prefetch_related('avaliacao_set')\
+        .annotate(media_avaliacao=Avg('avaliacao__estrelas')).all()
 
     if request.method == 'GET': return render(request, "produtos.html", {'data_protuto_all': data_protuto_all})
 
@@ -25,3 +27,12 @@ def vendedores(request):
     if request.method == 'GET': return render(request, "vendedores.html", {'data_vendedor_all': data_vendedor_all})
 
     
+def pesquisa_categoria(request, categoria):
+    categoria_obj = Categoria.objects.get(nome=categoria.lower())
+
+    result_categoria = Produto.objects.filter(categorias=categoria_obj)\
+        .prefetch_related('avaliacao_set')\
+        .annotate(media_avaliacao=Avg('avaliacao__estrelas'))
+
+    if request.method == 'GET':
+        return render(request, 'resultados.html', {'result_categoria': result_categoria})

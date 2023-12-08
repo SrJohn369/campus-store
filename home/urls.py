@@ -8,5 +8,6 @@ app_name = 'home'
 urlpatterns = [
     path('', home, name='home'),
     path('produtos', produtos, name='produtos'),
-    path('vendedores', vendedores, name='vendedores')
+    path('vendedores', vendedores, name='vendedores'),
+    path('pesquisa/<str:categoria>', pesquisa_categoria, name='pesquisa_categoria')
 ]

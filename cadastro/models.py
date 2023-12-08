@@ -26,13 +26,28 @@ class Produto(models.Model):
     preco = models.DecimalField(max_digits=9, decimal_places=2, blank=False)
     foto_prod = models.ImageField(
         null=False, default='', upload_to='foto_produto')
-    
     vendedor = models.ForeignKey(Vendedor, on_delete=models.CASCADE)
     
+    categorias = models.ManyToManyField('Categoria', related_name='produtos')
     
     def __str__(self):
         return f'{self.nome_prod} - R${self.preco}'
+    
+    
+class Categoria(models.Model):
+    NOME_CHOICES = [
+        ('artesanato', 'Artesanato'),
+        ('doce', 'Doce'),
+        ('moda', 'Moda'),
+        ('salgado', 'Salgado'),
+        ('bebida', 'Bebida'),
+        ('gelado', 'Gelado'),
+    ]
 
+    nome = models.CharField(max_length=20, choices=NOME_CHOICES)
+
+    def __str__(self):
+        return self.nome
     
     
 class Servico(models.Model):

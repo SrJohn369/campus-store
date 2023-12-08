@@ -6,6 +6,10 @@ class Favorito(models.Model):
     produto_favorito = models.ForeignKey(Produto, null=True, blank=True, on_delete=models.CASCADE)
     vendedor_favorito = models.ForeignKey(Vendedor, null=True, blank=True, on_delete=models.CASCADE)
     favoritado_em = models.DateTimeField(auto_now_add=True)
+    
+    def __str__(self):
+        return self.name
+    
 
 class Avaliacao(models.Model):
     usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, null=True, blank=True)
