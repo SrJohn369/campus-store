@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     'cadastro.apps.CadastroConfig',
     'login.apps.LoginConfig',
     'perfil.apps.PerfilConfig',
-    'corsheaders'
+    'corsheaders',
+    'api', 
+    'rest_framework'
 ]
 
 MIDDLEWARE = [

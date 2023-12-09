@@ -33,9 +33,9 @@ function moverHTML() {
         if (elementoAlvo && elementoAlvo.innerHTML.trim() === '') {
             
                 // Crie o HTML que deseja adicionar
-            var novoHTML = '\
-                <a href="#" class="nav-link">Login/Cadastro</a>\
-                <a href = "#" class="nav-link">Carinho</a> ';
+            var novoHTML = `
+                <a href="${perfilURL}" class="nav-link">Login/Cadastro</a>
+                <a href = "#" class="nav-link">Carinho</a>`;
 
                 // Adicione o novo HTML ao elemento alvo
                 elementoAlvo.innerHTML += novoHTML;
