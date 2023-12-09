@@ -65,7 +65,7 @@
     margin-top: 30px;
 }
 
-.perfil-info .frame2 .lin .text p, .desc {
+.perfil-info .frame2 .lin .text p, .desc, .form-info input {
     border-radius: 7px;
     text-align: center;
     background-color: #a5a0a05a;
@@ -73,8 +73,36 @@
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.253);
 }
 
+.form-info input {
+    border: 0;
+}
+
+.form-info .text {
+    display: flex;
+    flex-direction: column;
+}
+
 .desc p {
     text-indent: 20px;
+}
+
+.div-salvar input {
+    width: 100%;
+    margin-top: 0.5rem;
+    border: none;
+    background-color: #08244C;
+    padding: 0.62rem;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #fff;
+}
+
+.div-salvar {
+    margin-top: 30px;
+}
+
+.div-salvar input:hover {
+    background-color: #08244cdf;
 }
 
 
