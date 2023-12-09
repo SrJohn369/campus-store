@@ -9,6 +9,10 @@
     text-decoration: none;
 }
 
+body {
+    background-color: #f6f6f6;
+}
+
 p {
     font-size: 20px;
 }
@@ -40,7 +44,7 @@ html, body {
 
 /* ----------- NAVBAR ----------- */
 .navbarBg{
-    background-color: #fff;
+    background-color: #f6f6f6;
 }
 
 nav {
@@ -135,6 +139,7 @@ nav {
 /* FOOTER */
 
 #footer {
+    box-shadow: 1px 1px 8px 1px #5c58583a;
     background: #f9f8f8;
     color: var(--main-color);
     padding-top: 15px;
