@@ -144,3 +144,14 @@ def produto_servico(request):
 @login_required(login_url='login:login_usuario')      
 def sucesso(request):
     if request.method == 'GET': return render(request, 'sucesso.html')
+    
+
+@login_required(login_url='login:login_usuario') 
+def config_vendedor(request):
+    if request.method == 'GET': return render(request, 'configuracao.html')
+
+
+@login_required(login_url='login:login_usuario') 
+def config_usuario(request):
+    if request.method == 'GET': return render(request, 'configuracao.html')
+
