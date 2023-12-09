@@ -1,0 +1,33 @@
+.telaconfig-container {
+    overflow-y: auto;
+    padding: 30px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin: 0 auto;
+}
+
+.config-links ul li {
+    padding: 20px 30px;
+}
+
+.config-links ul li a {
+    font-size: 20px;
+}
+
+.config-links ul li a:hover {
+    text-decoration: underline;
+}
+
+
+@media screen and (max-width: 1000px) {
+    .container-perfil {
+        height: 100%;
+    }
+    .telaconfig-container {
+        height: 100%;
+        overflow-y: visible;
+    }
+}
