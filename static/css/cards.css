@@ -43,15 +43,9 @@
     align-items: center;
     justify-content: space-around;
 }
-<<<<<<< HEAD
- 
-.img-card{
-    width: 180px;
-=======
 
 .produtos img {
     width: 100%;
->>>>>>> 5f37fb96ab4b92f5e97f1bd9878315c1f8557129
     height: 140px;
     border-radius: 12px 12px 0 0;
 }
