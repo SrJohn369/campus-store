@@ -139,6 +139,7 @@ nav {
 /* FOOTER */
 
 #footer {
+    position: absolute;
     box-shadow: 1px 1px 8px 1px #5c58583a;
     background: #f9f8f8;
     color: var(--main-color);
