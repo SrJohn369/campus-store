@@ -1,39 +1,53 @@
-/*---- CADRS ----*/
-
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;500&family=Lato:wght@300;400;700;900&family=Open+Sans:wght@300;400;500&display=swap');
+
+* {
+    font-family: 'Lato', sans-serif;
+}
+
+.produtos {
+    margin: 50px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 .card-link {
     border-radius: 12px;
     text-decoration: none;
     color: #08244C;
-    margin: 10px;
+    padding: 10px;
 }
 
 .card-produto {
     background-color: #eee;
-    width: 100%;
+    width: 200px;
     border-radius: 12px;
     box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.336);
 }
 
+.frame1 {
+    width: 100%;
+}
+
 
 .frame2 {
-    padding-inline: 5px;
-    padding-block: 10px;
+    height: 140px;
+    width: 100%;
+    padding: 10px;
     display: flex;
     align-items: center;
     justify-content: space-around;
 }
 
-.img-card{
-    width: 180px;
+.produtos img {
+    width: 100%;
     height: 140px;
     border-radius: 12px 12px 0 0;
 }
 
 .text-card {
-    width: 100px;
+    height: 100%;
+    width: 150px;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -41,12 +55,14 @@
 
 #prod-name {
     margin-top: 10px;
-    font-weight: 500;
+    font-size: 16px;
+    font-weight: 700;
     margin: 0;
 }
 
 #preco {
-    font-weight: 700;
+    font-weight: 900;
+    font-size: 16px;
     margin: 0;
 }
 
@@ -100,13 +116,39 @@
     }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width:500px) {
+
+    .card-link{
+        width: 175px;
+    }
+    
+    .card-produto , .frame1 img {
+        width: 100%;
+    }
+
+}
+
+/* @media screen and (max-width: 500px) {
+    .wrapper {
+        width: 100%;
+    }
+
+    .produtos img {
+        width: 200px;
+    }
     .card-produto {
         width: 100%;
     }
 
+    .frame2 {
+        padding: 5px;
+    }
+
+    .card-produto {
+        width: 10px;
+    }
     .card-produto .text-card {
-        font-size: 15px;
+        font-size: 13px;
     }
 
     .botoes button {
@@ -120,14 +162,13 @@
     .card-link {
         margin: 5px;
     }
-
     .card-produto .text-card {
         font-size: 12px;
         width: 100px;
     }
 
-    img {
-        width: 160px;
+    .produtos img {
+        width: 100%;
         height: 140px;
     }
 
@@ -137,4 +178,4 @@
         height: 27px;
         font-size: 15px;
     }
-}
+} */

@@ -139,6 +139,7 @@ nav {
 /* FOOTER */
 
 #footer {
+    position: absolute;
     box-shadow: 1px 1px 8px 1px #5c58583a;
     background: #f9f8f8;
     color: var(--main-color);
@@ -166,82 +167,6 @@ nav {
 /*-------------------------------------*/
 /*-------------------------------------*/
 
-@media screen and (max-width: 1100px) {
-    .container-perfil {
-        flex-direction: column-reverse;
-    }
-
-    .perfil-config {
-        width: 100vw;
-        height: 300px;
-    }
-
-    .perfil-info .frame2 {
-        grid-template-columns: repeat(1, 1fr);
-    }
-
-    .perfil-info {
-        width: 60%;
-    }
-
-    .frame1 {
-        flex-direction: column;
-    }
-
-
-    .frame1 h2 {
-        padding-top: 20px;
-    }
-
-    .perfil-info .frame1 img {
-        width: 170px;
-    }
-
-    .sobre-img img {
-        width: 270px;
-    }
-
-    .sobre-info {
-        width: 500px;
-    }
-
-}
-
-@media screen and (max-width: 900px) {
-    .sobre {
-        flex-direction: column;
-        padding-inline: 50px;
-    }
-
-    .sobre-img {
-        padding-bottom: 50px;
-    }
-
-    .sobre-info {
-        width: 100%;
-    }
-}
-
-@media screen and (max-width: 600px) {
-    .perfil-info {
-        width: 80%;
-    }
-}
-
-
-@media screen and (max-width: 400px) {
-    .perfil-info {
-        width: 90%;
-    }
-
-    .sobre {
-        padding-inline: 30px;
-    }    
-
-    .sobre-img img {
-        width: 200px;
-    }
-}
 
 @media screen and (max-width:560px) {
     .logo-img {
@@ -253,13 +178,5 @@ nav {
     .logo-txt{
         width: 120px;
         margin-top: 5px;
-    }
-
-    .sobre-dados {
-        flex-direction: column;
-    }
-
-    .sobre-dados div {
-        padding-top: 30px;
     }
 }
