@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <div style="margin: center;">
+        VOCÊ ESTÁ LOGADO COMO ADMINISTRADOR <br><br><br>
+        <a href={% url "perfil:logout_usuario" %}>CLIQUE AQUI PARA SAIR</a>
+    </div>
+
+{% endblock content %}

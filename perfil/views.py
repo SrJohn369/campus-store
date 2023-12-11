@@ -28,6 +28,11 @@ def perfil(request):
         
         if request.method == 'GET':
             return render(request, 'perfil_vendedor_perfil.html', {'data_user': data_user})
+        
+    else:
+        if request.method == 'GET':
+            return render(request, 'adm.html')
+        
 
 @login_required(login_url='login:login_usuario')
 def logout_usuario(request):
@@ -42,12 +47,10 @@ def favoritos(request):
         
         try:    
             data_favoritos = Favorito.objects.filter(usuario_id=usuario)
-            if data_favoritos:
-                return render(request, 'perfil_usuário_favoritos.html', {'data_favoritos': data_favoritos})
-            else:
-                return render(request, 'perfil_usuário_favoritos.html', {'data_favoritos': 0})
+            return render(request, 'perfil_usuário_favoritos.html', {'data_favoritos': data_favoritos})
+        
         except:
-            return render(request, 'perfil_usuário_favoritos.html', {'data_favoritos': 0})
+            return render(request, 'perfil_usuário_favoritos.html', {'data_favoritos': ''})
         
     elif Vendedor.objects.filter(username=request.user.username).exists():
         usuario = request.user.id

@@ -6,10 +6,7 @@ class Favorito(models.Model):
     produto_favorito = models.ForeignKey(Produto, null=True, blank=True, on_delete=models.CASCADE)
     vendedor_favorito = models.ForeignKey(Vendedor, null=True, blank=True, on_delete=models.CASCADE)
     favoritado_em = models.DateTimeField(auto_now_add=True)
-    
-    def __str__(self):
-        return self.name
-    
+
 
 class Avaliacao(models.Model):
     usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, null=True, blank=True)
@@ -20,6 +17,7 @@ class Avaliacao(models.Model):
     comentario = models.TextField(max_length=200, null=True, blank=True)
     avaliado_em = models.DateTimeField(auto_now_add=True)
 
+
 class Carrinho(models.Model):
     
     quantidade_produto = models.IntegerField(blank=True, null=True)
@@ -28,6 +26,7 @@ class Carrinho(models.Model):
     vendedor = models.ForeignKey(Vendedor, on_delete=models.CASCADE, blank=True, null=True)
     produto = models.ForeignKey(Produto, on_delete=models.CASCADE, blank=True, null=True)
     usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, blank=True, null=True)
+
     
 class Compra(models.Model):
     
@@ -38,6 +37,7 @@ class Compra(models.Model):
     vendedor = models.ForeignKey(Vendedor, on_delete=models.CASCADE, blank=True, null=True)
     produto = models.ForeignKey(Produto, on_delete=models.CASCADE, null=True, blank=True)
     servico = models.ForeignKey(Servico, on_delete=models.CASCADE, null=True, blank=True)
+    
     
 class Parceria(models.Model):
     

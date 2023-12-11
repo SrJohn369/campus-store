@@ -5,5 +5,6 @@ from .views import *
 app_name = 'api'
 
 urlpatterns = [
-    path("", index, name="index")
+    path("", index, name="index"),
+    path("favoritar", favoritar, name="favoritar"),
 ]
