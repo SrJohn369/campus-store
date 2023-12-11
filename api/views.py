@@ -9,10 +9,7 @@ from cadastro.models import Usuario as UsuarioModel
 from cadastro.models import Produto as ProdutoModel
 from perfil.models import Favorito as FavoritoModel
 
-from .serializers import VendedorSerializer
-from .serializers import UsuarioSerializer
-from .serializers import ProdutoSerializer
-from .serializers import FavoritoSerializer
+from .serializers import *
 
 
 # Create your views here.
@@ -24,12 +21,12 @@ def index(request):
     return Response(serializar_vendedor.data, status=status.HTTP_200_OK)
 
 
-@api_view(['GET', 'POST'])
+@api_view(['GET', 'POST', 'DELETE'])
 def favoritar(request):
     if request.method == 'GET':
-        favorito = FavoritoModel()
-        serializar_favorito = FavoritoSerializer(favorito)
-        serializar_usuario = UsuarioSerializer(request.user)
+        favorito = FavoritoModel.objects.filter(usuario=request.user)
+        serializar_favorito = Favoritos(favorito, many=True)
+        serializar_usuario = UsuarioId(request.user)
 
         return Response({'favoritos':serializar_favorito.data,
                         'usuario': serializar_usuario.data}, status=status.HTTP_200_OK)
@@ -45,3 +42,6 @@ def favoritar(request):
             produto_favorito=produto
         )
         return Response({'html': 'deu bom'}, status=status.HTTP_202_ACCEPTED)
+    elif request.method == 'DELETE':
+        FavoritoModel.objects.delete(id=favorito)
+        return Response({'mensagem': 'deletado com sucesso!'}, status=status.HTTP_200_OK)
