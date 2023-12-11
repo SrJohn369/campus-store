@@ -4,12 +4,22 @@
     font-family: 'Lato', sans-serif;
 }
 
+.wrapper {
+    height: 100%;
+    margin: 0;
+}
+
 .produtos-favoritos {
     overflow-y: auto;
     margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+}
+
+.produtos-favoritos .title {
+    padding-block: 20px;
 }
 
 .produtos-favoritos .card-link {
@@ -93,8 +103,7 @@
 }
 
 .produtos-favoritos .wrapper {
-    margin-top: 150px;
-
+    margin-top: 20px;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
 }
