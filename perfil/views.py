@@ -151,7 +151,7 @@ def sucesso(request):
 
 @login_required(login_url='login:login_usuario') 
 def config_vendedor(request):
-    if request.method == 'GET': return render(request, 'configuracao.html')
+    if request.method == 'GET': return render(request, 'configuracaov.html')
 
 
 @login_required(login_url='login:login_usuario') 
