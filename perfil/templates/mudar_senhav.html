@@ -1,0 +1,25 @@
+{% extends "perfil_vendedor.html" %}
+{% load static %}
+
+{% block abas %}
+<div class="mudar-senha">
+    <div class="mudar-senha-title">
+       <h1>Alterar Senha</h1>
+    </div>
+    <form action="">
+        <div>
+            <label for="senha-atual">Senha atual:</label>
+            <input type="password" name="senha-atual" id="senha-atual">
+        </div>
+
+        <div>
+            <label for="nova-senha">Nova Senha:</label>
+            <input type="password" name="nova-senha" id="nova-senha">
+        </div>
+
+        <div class="btn">
+            <input type="submit" value="Salvar">
+        </div>
+    </form>
+</div>
+{% endblock abas %}
