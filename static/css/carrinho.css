@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;500&family=Lato:wght@300&family=Open+Sans:wght@300;400;500&display=swap');
 
 * {
-    color: #0a0a50;
+    color: #08244C;
 }
 
 body {
@@ -9,7 +9,7 @@ body {
 }
 
 .maincolor {
-    color: #0a0a50;
+    color: #08244C;
     font-weight: 700;
 }
 
@@ -62,7 +62,7 @@ aside .box .box-resumo {
 
 aside button {
     border: 0;
-    background-color: #0a0a50;
+    background-color: #08244C;
     color: #fff;
     font-weight: 700;
     font-size: 16px;
@@ -78,7 +78,7 @@ table {
 }
 
 table thead tr {
-    border-block: 1px solid #0a0a50;
+    border-block: 1px solid #08244C;
 }
 
 table thead tr th {
