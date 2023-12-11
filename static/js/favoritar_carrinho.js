@@ -8,11 +8,14 @@ function addFavorito() {
     // Você pode usar um seletor CSS para selecionar todos os elementos que começam com "elemento"
     var buttons = document.querySelectorAll('[id^="add_favorito"]');
 
+    var contador = 0
+
     // PARA CADA BOTÃO
     buttons.forEach(async (button) => {
         console.log(button); // Debug
 
         const produtoID = button.getAttribute("data-produto-id");
+        // console.log(produtoID)
 
         const csrftoken = getCookie('csrftoken'); // Substitua 'getCookie' pela função correta para obter cookies
 
@@ -22,14 +25,28 @@ function addFavorito() {
             },
         });
 
-        if (response.data.favoritos.produto_favorito === produtoID) {
-            botao = document.getElementById(button.id)
-            botao.innerHTML = ''
+        // console.log(response.data)
+        // console.log(response.data.favoritos)
 
-            const novoIcone = document.createElement("i")
-            novoIcone.classList = "fa-solid fa-check"
+        let arrayDeProdutosFavoritos = response.data.favoritos.map(objeto => objeto.produto_favorito);
+        console.log(arrayDeProdutosFavoritos);
 
-            botao.appendChild(novoIcone)
+        for (let i = 0; i < arrayDeObjetos.length; i++) {
+            let produtoFavoritoAtual = arrayDeObjetos[i].produto_favorito;
+            console.log(produtoFavoritoAtual);
+            if (produtoFavoritoAtual === produtoID) {
+                console.log("PASSOU AQUI")
+                contador++
+                botao = document.getElementById(button.id)
+                console.log(botao)
+                console.log(produtoID)
+                botao.innerHTML = ''
+    
+                const novoIcone = document.createElement("i")
+                novoIcone.classList = "fa-solid fa-check"
+    
+                botao.appendChild(novoIcone)
+            }
         }
 
         button.onclick = async (event) => {
@@ -38,10 +55,10 @@ function addFavorito() {
 
             if (response.data.usuario.id) {
                 const usuario_id = response.data.usuario.id;
-                const favorito_id = response.data.favoaritos.id;
+                const favorito_id = response.data.favoritos.id;
 
                 // VERIFICA SE TEM FAVORITO PARA O SEGUNDO CLIQUE
-                if (response.data.favoarito.produto_favorito === produtoID) {
+                if (response.data.favoritos.produto_favorito === produtoID) {
                     await axios.delete(`http://localhost:8000/api/favoritar?favorito=${favorito_id}`, {
                         headers: {
                             'X-CSRFToken': csrftoken,
