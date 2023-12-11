@@ -158,3 +158,12 @@ def config_vendedor(request):
 def config_usuario(request):
     if request.method == 'GET': return render(request, 'configuracao.html')
 
+
+@login_required(login_url='login:login_usuario')
+def mudar_senhav(request):
+    if request.method == 'GET': return render(request, 'mudar_senhav.html')
+    
+    
+@login_required(login_url='login:login_usuario')
+def mudar_senha_usuario(request):
+    if request.method == 'GET': return render(request, 'mudar_senha_usuario.html')
