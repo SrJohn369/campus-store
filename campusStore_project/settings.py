@@ -1,6 +1,5 @@
-from pathlib import Path
 import os
-
+from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -15,13 +14,15 @@ SECRET_KEY = 'django-insecure-#c)9*@frn%%dpp5a4a(u-xcl7jq8=dr!$#06!w#nr@q+o4(ctf
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["https://owl-campus-store.onrender.com", "localhost:8000",
+                 "0.0.0.0:8000",
+]
 CORS_ALLOWED_ORIGINS = [
-    "https://owl-campus-store.onrender.com", 
+    "https://owl-campus-store.onrender.com"
 ]
 CORS_ALLOW_ALL_ORIGINS = True
 CSRF_TRUSTED_ORIGINS = [
-    "https://owl-campus-store.onrender.com", 
+    "https://owl-campus-store.onrender.com"
 ]
 
 # Application definition
