@@ -10,6 +10,11 @@
 
 .servico-container .title a {
     padding-bottom: 15px;
+    transition: 0.5s;
+}
+
+.servico-container .title a:hover {
+    text-decoration: underline;
 }
 
 .servico-container .title a i {

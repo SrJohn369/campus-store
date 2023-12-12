@@ -1,0 +1,133 @@
+.add-servico-container {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    padding: 20px;
+}
+
+.add-servico-container h3 {
+    padding-bottom: 20px;
+}
+
+#val-serv input::-webkit-outer-spin-button,
+#val-serv input::-webkit-inner-spin-button {
+    appearance: none;
+}
+
+input:focus {
+    outline: none;
+}
+
+.add-servico-container input[type="button"] {
+    width: 200px;
+    margin-top: 0.5rem;
+    border: none;
+    background-color: #08244C;
+    padding: 0.62rem;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #fff;
+}
+
+.add-servico-container input {
+    width: 250px;
+    margin: 0.6rem 0;
+    padding: 0.7rem 1rem;
+    border: none;
+    border-radius: 7px;
+    background-color: #D9D9D9;
+    box-shadow: 1px 1px 6px #0000001c;
+}
+
+textarea {
+    background-color: #D9D9D9;
+    border-radius: 7px;
+    border: none;
+    margin-block: 20px;
+    padding: 9px;
+    resize: none;
+}
+
+textarea:focus {
+    outline: none;
+}
+
+.add-servico-container #btn {
+    padding-block: 20px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn {
+    margin-top: 30px;
+}
+
+.btn:hover {
+    background-color: #08244cdf;
+}
+
+
+.add-servico-container form {
+    width: 700px;
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    flex-direction: column;
+}
+
+.inputs {
+    width: 700px;
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+}
+
+.inputs1 {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.inputs-l {
+    display: flex;
+    flex-direction: column;
+}
+
+@media screen and (max-width: 1100px) {
+    .add-servico-container form {
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    textarea {
+        width: 250px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .add-servico-container form,.inputs {
+        width: 400px;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .add-servico-container form {
+        width: 250px;
+    }
+}
+
+@media screen and (max-width: 300px) {
+    .add-servico-container {
+        padding: 10px;
+    }
+    .add-servico-container label {
+        padding-top: 10px;
+    }
+    .add-servico-container form input, textarea {
+        width: 200px;
+    }
+}
