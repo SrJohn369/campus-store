@@ -17,7 +17,7 @@ function addFavorito() {
 
         const csrftoken = getCookie('csrftoken'); // Substitua 'getCookie' pela função correta para obter cookies
 
-        const response = await axios.get(`http://owl-campus-store.onrender.com/api/favoritar`, {
+        const response = await axios.get(`/api/favoritar`, {
             headers: {
                 'X-CSRFToken': csrftoken,
             },
@@ -52,7 +52,7 @@ function addFavorito() {
                 let favorito_id = ''
                 console.log('VARIAVEIS PASSOU')
 
-                let responseGET = await axios.get(`http://owl-campus-store.onrender.com/api/favoritar`, {
+                let responseGET = await axios.get(`/api/favoritar`, {
                     headers: {
                         'X-CSRFToken': csrftoken,
                     },
@@ -69,7 +69,7 @@ function addFavorito() {
                 // VERIFICA SE TEM FAVORITO PARA O SEGUNDO CLIQUE
                 if (verifica) {
                     console.log('PASSOU NO DELETE')
-                    await axios.delete(`http://owl-campus-store.onrender.com/api/favoritar?favorito=${favorito_id}`, {
+                    await axios.delete(`/api/favoritar?favorito=${favorito_id}`, {
                         headers: {
                             'X-CSRFToken': csrftoken,
                         }
@@ -90,7 +90,7 @@ function addFavorito() {
                     });
 
                 } else {
-                    await axios.post(`http://owl-campus-store.onrender.com/api/favoritar`, {
+                    await axios.post(`/api/favoritar`, {
                         produto_favorito: produtoID,
                         usuario: usuario_id,
                     }, {
