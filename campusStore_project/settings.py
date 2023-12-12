@@ -14,15 +14,18 @@ SECRET_KEY = 'django-insecure-#c)9*@frn%%dpp5a4a(u-xcl7jq8=dr!$#06!w#nr@q+o4(ctf
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["https://owl-campus-store.onrender.com", "localhost:8000",
-                 "0.0.0.0:8000",
+ALLOWED_HOSTS = [
+    "https://owl-campus-store.onrender.com", "https://localhost:8000",
+    "https://0.0.0.0:8000"
 ]
 CORS_ALLOWED_ORIGINS = [
-    "https://owl-campus-store.onrender.com"
+    "https://owl-campus-store.onrender.com", "https://localhost:8000",
+    "https://0.0.0.0:8000"
 ]
 CORS_ALLOW_ALL_ORIGINS = True
 CSRF_TRUSTED_ORIGINS = [
-    "https://owl-campus-store.onrender.com"
+    "https://owl-campus-store.onrender.com", "https://localhost:8000",
+    "https://0.0.0.0:8000"
 ]
 
 # Application definition
