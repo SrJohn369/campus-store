@@ -25,20 +25,21 @@ function addFavorito() {
 
         // console.log(response.data)
         // console.log(response.data.favoritos.id)
+        if (response.data.usuario.id) {
+            response.data.favoritos.forEach((produto) => {
+                // console.log('PASSOU FOREATCH CHECK')
+                if (produto.produto_favorito == produtoID) {
+                    console.log("PASSOU NESSE IF DE CHECK")
+                    botao = document.getElementById(button.id)
+                    botao.innerHTML = ''
 
-        response.data.favoritos.forEach((produto) => {
-            // console.log('PASSOU FOREATCH CHECK')
-            if (produto.produto_favorito == produtoID) {
-                console.log("PASSOU NESSE IF DE CHECK")
-                botao = document.getElementById(button.id)
-                botao.innerHTML = ''
+                    const novoIcone = document.createElement("i")
+                    novoIcone.classList = "fa-solid fa-bookmark"
 
-                const novoIcone = document.createElement("i")
-                novoIcone.classList = "fa-solid fa-bookmark"
-
-                botao.appendChild(novoIcone)
-            }
-        })
+                    botao.appendChild(novoIcone)
+                }
+            })
+        }
 
         button.onclick = async (event) => {
             event.preventDefault();
