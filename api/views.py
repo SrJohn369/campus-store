@@ -39,7 +39,7 @@ def favoritar(request):
             favorito = FavoritoModel.objects.filter(usuario=request.user.id)
             
             serializar_favorito = Favoritos(favorito, many=True)
-            serializar_usuario = UsuarioId(request.user.id)
+            serializar_usuario = UsuarioId(request.user)
 
             return Response({'favoritos':serializar_favorito.data,
                             'usuario': serializar_usuario.data}, status=status.HTTP_200_OK)
@@ -57,7 +57,7 @@ def favoritar(request):
             usuario=usuario,
             produto_favorito=produto
         )
-        return Response({'mensagem': 'Adicionado aos favoritos!', 'id': favorito.id}, status=status.HTTP_201_CREATED)
+        return Response({'mensagem': 'DEU BOM'}, status=status.HTTP_201_CREATED)
     elif request.method == 'DELETE':
         favorito_id = request.query_params.get('favorito')
         

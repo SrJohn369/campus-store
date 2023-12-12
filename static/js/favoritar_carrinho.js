@@ -8,11 +8,9 @@ function addFavorito() {
     // Você pode usar um seletor CSS para selecionar todos os elementos que começam com "elemento"
     var buttons = document.querySelectorAll('[id^="add_favorito"]');
 
-    var contador = 0
-
     // PARA CADA BOTÃO
     buttons.forEach(async (button) => {
-        console.log(button); // Debug
+        // console.log(button); // Debug
 
         const produtoID = button.getAttribute("data-produto-id");
         // console.log(produtoID)
@@ -26,45 +24,56 @@ function addFavorito() {
         });
 
         // console.log(response.data)
-        // console.log(response.data.favoritos)
+        // console.log(response.data.favoritos.id)
 
-        let arrayDeProdutosFavoritos = response.data.favoritos.map(objeto => objeto.produto_favorito);
-        console.log(arrayDeProdutosFavoritos);
-
-        for (let i = 0; i < arrayDeObjetos.length; i++) {
-            let produtoFavoritoAtual = arrayDeObjetos[i].produto_favorito;
-            console.log(produtoFavoritoAtual);
-            if (produtoFavoritoAtual === produtoID) {
-                console.log("PASSOU AQUI")
-                contador++
+        response.data.favoritos.forEach((produto) => {
+            // console.log('PASSOU FOREATCH CHECK')
+            if (produto.produto_favorito == produtoID) {
+                console.log("PASSOU NESSE IF DE CHECK")
                 botao = document.getElementById(button.id)
-                console.log(botao)
-                console.log(produtoID)
                 botao.innerHTML = ''
-    
+
                 const novoIcone = document.createElement("i")
-                novoIcone.classList = "fa-solid fa-check"
-    
+                novoIcone.classList = "fa-solid fa-bookmark"
+
                 botao.appendChild(novoIcone)
             }
-        }
+        })
 
         button.onclick = async (event) => {
             event.preventDefault();
 
-
             if (response.data.usuario.id) {
                 const usuario_id = response.data.usuario.id;
-                const favorito_id = response.data.favoritos.id;
+                let verifica = false
+                let favorito_id = ''
+                console.log('VARIAVEIS PASSOU')
+
+                let responseGET = await axios.get("http://localhost:8000/api/favoritar", {
+                    headers: {
+                        'X-CSRFToken': csrftoken,
+                    },
+                });
+                // VERIFICA O PRODUTO ATUAL COM FAVORITO
+                responseGET.data.favoritos.forEach((produto) => {
+                    if (produto.produto_favorito == produtoID) {
+                        verifica = true
+                        favorito_id = produto.id
+                        console.log('PASSOU FOREATCH')
+                    }
+                })
 
                 // VERIFICA SE TEM FAVORITO PARA O SEGUNDO CLIQUE
-                if (response.data.favoritos.produto_favorito === produtoID) {
+                if (verifica) {
+                    console.log('PASSOU NO DELETE')
                     await axios.delete(`http://localhost:8000/api/favoritar?favorito=${favorito_id}`, {
                         headers: {
                             'X-CSRFToken': csrftoken,
                         }
                     }).then((response) => {
-                        if (response.staus === 200) {
+                        console.log('PASSOU RESPONSE DO DELETE')
+                        if (response.status === 200) {
+                            console.log("Ação bem-sucedida! REMOVEU DO FAVORITO");
                             botao = document.getElementById(button.id)
                             botao.innerHTML = ''
 
@@ -72,6 +81,8 @@ function addFavorito() {
                             novoIcone.classList = "fa-regular fa-bookmark"
 
                             botao.appendChild(novoIcone)
+                        } else {
+                            console.log('NÃO PASSOU NO IF')
                         }
                     });
 
@@ -84,13 +95,13 @@ function addFavorito() {
                             'X-CSRFToken': csrftoken,
                         },
                     }).then((response) => {
-                        if (response.status === 202) {
+                        if (response.status === 201) {
                             // Ação no HTML quando a resposta for um status 202 (Aceito)
                             botao = document.getElementById(button.id)
                             botao.innerHTML = ''
 
                             const novoIcone = document.createElement("i")
-                            novoIcone.classList = "fa-solid fa-check"
+                            novoIcone.classList = "fa-solid fa-bookmark"
 
                             botao.appendChild(novoIcone)
 
