@@ -17,7 +17,7 @@ function addFavorito() {
 
         const csrftoken = getCookie('csrftoken'); // Substitua 'getCookie' pela função correta para obter cookies
 
-        const response = await axios.get("http://localhost:8000/api/favoritar", {
+        let response = await axios.get("http://localhost:8000/api/favoritar", {
             headers: {
                 'X-CSRFToken': csrftoken,
             },
@@ -45,6 +45,14 @@ function addFavorito() {
 
         button.onclick = async (event) => {
             event.preventDefault();
+
+            let response = await axios.get("http://localhost:8000/api/favoritar", {
+                headers: {
+                    'X-CSRFToken': csrftoken,
+                },
+            }).catch((error) => {
+                console.error("Erro na solicitação GET:", error);
+            });
 
             if (response.data.usuario.id) {
                 const usuario_id = response.data.usuario.id;
