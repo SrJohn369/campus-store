@@ -170,3 +170,8 @@ def mudar_senhav(request):
 @login_required(login_url='login:login_usuario')
 def mudar_senha_usuario(request):
     if request.method == 'GET': return render(request, 'mudar_senha_usuario.html')
+
+
+@login_required(login_url='login:login_usuario')
+def add_servico(request):
+    if request.method == 'GET': return render(request, 'add_servico.html')

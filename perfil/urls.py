@@ -15,5 +15,6 @@ urlpatterns = [
     path("configuracao_usario", views.config_usuario, name="config_usuario"),
     path("configuracao_vendedor", views.config_vendedor, name="config_vendedor"),
     path("mudar_senhav", views.mudar_senhav, name="mudar_senhav"),
-    path("mudar_senha_usuario", views.mudar_senha_usuario, name="mudar_senha_usuario")
+    path("mudar_senha_usuario", views.mudar_senha_usuario, name="mudar_senha_usuario"),
+    path("adicionar_servico", views.add_servico, name="add_servico"),
 ]
