@@ -1,0 +1,34 @@
+{% extends "perfil_vendedor.html" %}
+{% block abas %}
+    <div class="add-servico-container">
+        <div class="title">
+            <h3>Adicionar Serviço:</h3>
+        </div>
+        <form action="">
+            <div class="inputs">
+                <div class="inputs1">
+                    <div class="inputs-l">
+                        <label for="tit-serv">Título do Serviço:</label>
+                        <input type="text" id="tit-serv">
+                    </div>
+                    <div class="inputs-l">
+                        <label for="hab-serv">Habilidades/Competências:</label>
+                        <input type="text" id="hab-serv" placeholder="Separe por vírgula">
+                    </div>
+                    <div class="inputs-l">
+                        <label for="val-serv">Valor:</label>
+                        <input type="number" id="val-serv" step="0.01" placeholder="0,00">
+                    </div>
+                </div>
+                <div class="inputs-l">
+                    <label for="desc-serv">Descrição:</label>
+                    <textarea id="desc-serv" name="w3review" rows="7" cols="30">
+                    </textarea>
+                </div>
+            </div>
+            <div id="btn">
+                <input class="btn" type="button" value="Salvar">
+            </div>
+        </form>
+    </div>
+{% endblock abas %}
