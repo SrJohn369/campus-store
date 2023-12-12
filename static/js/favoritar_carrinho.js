@@ -21,6 +21,8 @@ function addFavorito() {
             headers: {
                 'X-CSRFToken': csrftoken,
             },
+        }).catch((error) => {
+            console.error("Erro na solicitação GET:", error);
         });
 
         // console.log(response.data)
