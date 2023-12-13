@@ -1,5 +1,6 @@
 from rest_framework import serializers
-from cadastro.models import Vendedor, Produto, Usuario, User
+from cadastro.models import Vendedor, Produto, User
+from perfil.models import Carrinho
 from perfil.models import Favorito
 
 
@@ -38,4 +39,14 @@ class UsuarioId(serializers.ModelSerializer):
 class Favoritos(serializers.ModelSerializer):
     class Meta:
         model = Favorito
-        fields = ['id', 'produto_favorito', 'usuario']
+        fields = [
+            'id', 'produto_favorito', 'usuario'
+        ]
+
+
+class CarrinhoSerial(serializers.ModelSerializer):
+    class Meta:
+        model = Carrinho
+        fields = [
+            'id', 'quantidade_produto', 'produto', 'usuario'
+        ]
