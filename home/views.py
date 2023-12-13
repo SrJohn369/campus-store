@@ -38,19 +38,3 @@ def pesquisa_categoria(request, categoria):
 
     if request.method == 'GET':
         return render(request, 'resultados.html', {'result_categoria': result_categoria})
-
-
-@login_required(login_url='login:login_usuario')
-def adicionar_ao_carrinho(request):
-    if request.method == 'POST':
-        produto_id = request.POST.get('produto_id')
-        # Lógica para adicionar o produto ao carrinho
-        return JsonResponse({'mensagem': 'Produto adicionado ao carrinho com sucesso!'})
-
-
-@login_required(login_url='login:login_usuario')
-def favoritar_produto(request):
-    if request.method == 'POST':
-        produto_id = request.POST.get('produto_id')
-        # Lógica para favoritar o produto
-        return JsonResponse({'mensagem': 'Produto favoritado com sucesso!'})

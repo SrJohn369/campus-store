@@ -44,13 +44,13 @@ def logout_usuario(request):
 def favoritos(request):
     if Usuario.objects.filter(username=request.user.username).exists():
         usuario = request.user.id
+        favoritos = Favorito.objects.filter(usuario_id=usuario)
         
-        try:    
-            data_favoritos = Favorito.objects.filter(usuario_id=usuario)
-            return render(request, 'perfil_usuário_favoritos.html', {'data_favoritos': data_favoritos})
+        data_produtos_fav = [
+            favorito.produto_favorito for favorito in favoritos
+        ]
         
-        except:
-            return render(request, 'perfil_usuário_favoritos.html', {'data_favoritos': ''})
+        return render(request, 'perfil_usuário_favoritos.html', {'data_favoritos': data_produtos_fav})
         
     elif Vendedor.objects.filter(username=request.user.username).exists():
         usuario = request.user.id
