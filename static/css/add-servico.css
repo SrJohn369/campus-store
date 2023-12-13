@@ -9,16 +9,24 @@
     padding-bottom: 20px;
 }
 
-#val-serv input::-webkit-outer-spin-button,
-#val-serv input::-webkit-inner-spin-button {
-    appearance: none;
+#val-serv {
+    -moz-appearance: textfield; /* Firefox */
+    appearance: textfield;
+    -webkit-appearance: none; /* Webkit browsers */
 }
+
+#val-serv::-webkit-inner-spin-button,
+#val-serv::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
 
 input:focus {
     outline: none;
 }
 
-.add-servico-container input[type="button"] {
+.add-servico-container input[type="button"], .produtos-container input[type="button"] {
     width: 200px;
     margin-top: 0.5rem;
     border: none;
@@ -29,7 +37,7 @@ input:focus {
     color: #fff;
 }
 
-.add-servico-container input {
+.add-servico-container input, .produtos-container input {
     width: 250px;
     margin: 0.6rem 0;
     padding: 0.7rem 1rem;
@@ -52,7 +60,7 @@ textarea:focus {
     outline: none;
 }
 
-.add-servico-container #btn {
+.add-servico-container #btn, .produtos-container #btn {
     padding-block: 20px;
     width: 100%;
     display: flex;

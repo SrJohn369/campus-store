@@ -17,4 +17,7 @@ urlpatterns = [
     path("mudar_senhav", views.mudar_senhav, name="mudar_senhav"),
     path("mudar_senha_usuario", views.mudar_senha_usuario, name="mudar_senha_usuario"),
     path("adicionar_servico", views.add_servico, name="add_servico"),
+    path("editar_servico", views.editar_servico, name="editar_servico"),
+    path("adicionar_produto", views.add_produto, name="add_produto"),
+    path("editar_produto", views.editar_produto, name="editar_produto"),
 ]

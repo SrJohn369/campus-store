@@ -1,18 +1,45 @@
 {% extends "perfil_vendedor.html" %}
 {% block abas %}
+    <div class="produtos-container editar-prod">
+        <div class="title">
+            <h1>Editar Produto</h1>
+            <a href="{% url 'perfil:add_produto' %}">Adicionar Produto <i class="fa-solid fa-plus"></i></a>
+        </div>
 
-    {% if data_produtos %}
-        {% for data in data_produtos %}
-            <div style="margin: auto;">produto{{forloop.counter}}</div>
-        {% endfor %}
-    {% else %}
-        <div style="margin: auto;">NÃO HÁ PRODUTOS CADASTRADOS</div>
-    {% endif %}
-
+        <main class="produtos">
+            <div class="wrapper">
+                <a href="{% url 'perfil:editar_produto' %}" class="card-link">
+                    <div class="card-produto">
+                        <div class="frame1">
+                            <img class="img-card" src="https://picsum.photos/200" alt="Imagem do Produto">
+                        </div>
+                        <div class="frame2">
+                            <div class="text-card">
+                                <h4 id="prod-name">{{produto.nome_prod}}</h4>
+                                <h4 id="preco">R$ {{produto.preco}}</h4>
+                                <div class="strelas-avaliacao">
+                                    {% if produto.media_avaliacao %}
+                                    <span>{{produto.media_avaliacao}} </span><i class="fa-solid fa-star"></i>
+                                    {% else %}
+                                    <span>0 </span><i class="fa-solid fa-star"></i>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="botoes">
+                                <button id='add_favorito{{forloop.counter}}' data-produto-id="{{ produto.id }}">
+                                    <i class="fa-solid fa-pencil"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </main>
+    </div>
 {% endblock abas %}
 
 
-{% comment "PAGINA DO VENDEDOR" %}
+<!-- {% comment "PAGINA DO VENDEDOR" %}
 
 <div class="sobre">
     <div class="sobre-img">
@@ -91,4 +118,4 @@
     <h2>Produtos:</h2>
 </div>
 
-{% endcomment %}
+{% endcomment %} -->
