@@ -175,3 +175,19 @@ def mudar_senha_usuario(request):
 @login_required(login_url='login:login_usuario')
 def add_servico(request):
     if request.method == 'GET': return render(request, 'add_servico.html')
+    
+
+@login_required(login_url='login:login_usuario')
+def editar_servico(request):
+    if request.method == 'GET': return render(request, 'editar_servico.html')
+    
+
+@login_required(login_url='login:login_usuario')
+def add_produto(request):
+    if request.method == 'GET': return render(request, 'add_produto.html')
+
+
+@login_required(login_url='login:login_usuario')
+def editar_produto(request):
+    if request.method == 'GET': return render(request, 'editar_produto.html')
+
