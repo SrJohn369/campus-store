@@ -1,0 +1,107 @@
+{% extends "perfil_vendedor.html" %}
+{% block abas %}
+
+<div class="formulario">
+                    
+    <div class="mudar-senha">
+        <div class="editar">
+            <img src="foyto-20.png" alt="perfil" id="foto-perfil">
+                <svg id="botao-editar" xmlns="http://www.w3.org/2000/svg" width="65" height="64" viewBox="0 0 65 64" fill="none">
+                    <ellipse cx="32.5" cy="32" rx="32.5" ry="32" fill="#F2EEEE" fill-opacity="0.65"/>
+                    <path d="M47 25.3355C47.0011 25.1512 46.9645 24.9686 46.8923 24.798C46.8202 24.6275 46.7139 24.4724 46.5795 24.3416L40.4315 18.406C40.296 18.2762 40.1353 18.1736 39.9587 18.1039C39.782 18.0343 39.5928 17.999 39.402 18C39.2112 17.999 39.022 18.0343 38.8453 18.1039C38.6687 18.1736 38.508 18.2762 38.3725 18.406L34.269 22.3677L18.4205 37.6686C18.2861 37.7994 18.1798 37.9545 18.1077 38.1251C18.0355 38.2956 17.9989 38.4782 18 38.6625V44.598C18 44.9693 18.1528 45.3254 18.4247 45.5879C18.6966 45.8504 19.0655 45.9979 19.45 45.9979H25.598C25.8009 46.0086 26.0039 45.978 26.1937 45.908C26.3835 45.8381 26.556 45.7304 26.7 45.592L42.4615 30.2911L46.5795 26.3994C46.7118 26.2637 46.8197 26.1076 46.8985 25.9374C46.9124 25.8258 46.9124 25.713 46.8985 25.6015C46.9053 25.5363 46.9053 25.4706 46.8985 25.4055L47 25.3355ZM25.0035 43.1981H20.9V39.2364L35.2985 25.3355L39.402 29.2972L25.0035 43.1981ZM41.4465 27.3233L37.343 23.3616L39.402 21.3878L43.491 25.3355L41.4465 27.3233Z" fill="#08244C"/>
+                  </svg>
+        </div>
+
+        <div id="info">
+            <p class="info-txt">Marcela Lima</p>
+            <p class="info-txt">2022211mtds0085</p>
+        </div>
+    </div>
+
+    <div class="form">
+        <form action="/submit_form" method="post">
+            <div class="div-input">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" class="form-input">
+            </div>
+          
+            <div class="div-input">
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" class="form-input">
+            </div>
+          
+            <div class="div-input">
+                <label for="negocio">Nome do Negócio:</label>
+                <div class="box"><input type="text" id="negocio" name="negocio" class="form-input"></div>
+            </div>
+          
+            <div class="div-input">
+                <label for="rede_social">Rede Social:</label>
+                <div id="redes_sociais">
+                  <input type="url" id="rede_social_1" name="rede_social[]" class="form-input">
+                  <button type="button" onclick="addRedeSocial()">+</button>
+                </div>
+            </div>
+          
+            <div class="div-input">
+                <label for="sobrenome">Sobrenome:</label>
+                <input type="text" id="sobrenome" name="sobrenome" class="form-input">
+            </div>
+          
+            <div class="div-input">
+                <label for="telefone">Telefone:</label>
+                <input type="tel" id="telefone" name="telefone" class="form-input">
+            </div>
+          
+            <div class="div-input">
+                <label for="descricao">Descrição:</label><br>
+                <textarea id="descricao" name="descricao" rows="4" cols="50" class="form-input"></textarea>
+            </div>
+          
+            <div class="div-input">
+                <input type="submit" value="Salvar" class="botão">
+            </div>
+        </form>    
+          <script>
+            let contadorRedesSociais = 1;
+          
+            function addRedeSocial() {
+              contadorRedesSociais++;
+              const divRedeSocial = document.createElement('div');
+              divRedeSocial.innerHTML = `<input type="url" id="rede_social_${contadorRedesSociais}" name="rede_social[]">`;
+              document.getElementById('redes_sociais').appendChild(divRedeSocial);
+            }
+          
+            function salvarInformacoes() {
+              // Aqui você pode adicionar o código para salvar as informações do formulário
+              // Por exemplo, enviar uma solicitação para salvar os dados no servidor
+              alert('Informações salvas! Implemente a lógica de salvamento no código.');
+            }
+          </script>
+    </div>
+</div>
+
+{% endblock abas %}
+{% block scripts %}
+<script>
+    // Função para verificar se há uma imagem salva no armazenamento local
+    function checkLocalStorage() {
+        let savedImage = localStorage.getItem('profileImage');
+        if (savedImage) {
+            profilePic.src = savedImage;
+        }
+    }
+
+    let profilePic = document.getElementById('profile-pic');
+    let inputFile = document.getElementById('input-file');
+
+    // Verificar se há uma imagem salva ao carregar a página
+    document.addEventListener('DOMContentLoaded', checkLocalStorage);
+
+    inputFile.onchange = function () {
+        // Atualizar a imagem e salvar o caminho no armazenamento local
+        profilePic.src = URL.createObjectURL(inputFile.files[0]);
+        localStorage.setItem('profileImage', profilePic.src);
+    }
+</script>
+{% endblock scripts %}
