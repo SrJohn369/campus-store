@@ -1,0 +1,109 @@
+.centro{
+    display: flex;
+}
+
+#foto-perfil{
+    width: 13rem;
+    height: 12rem
+}
+
+.formulario{
+    overflow-y: auto;
+    margin: 2rem 0 0 7rem;
+    width: 100%;
+    padding-bottom: 30px;
+    padding: auto;
+}
+
+.formulario button {
+    border: 1px solid #08244C;
+    border-radius: 5px;
+    padding: 0 5px;
+}
+
+#botao-editar{
+    width: 2.5rem;
+    height: 2.5rem;
+    position: relative;
+    top: -1rem;
+    left: -4rem;
+}
+
+.info-txt{
+    color: #686363;
+    font-family: Lato;
+    font-size: 0.9rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.575rem; /* 132.632% */
+}
+
+p{
+    margin: 0;
+}
+
+.mudar-senha{
+    display: flex;
+}
+
+#info{
+    padding: 2rem 0 0 0rem;
+}
+.form-input {
+    width: 10rem;
+    height: 1.2rem;
+    border-radius: 0.6rem;
+    background: #F2EEEE;
+    border-style: none;
+    margin: .5rem;
+    transition: background 0.3s; /* Adiciona transição para uma mudança suave */
+}
+
+/* Estilos para quando o cursor está sobre o input */
+.form-input:hover {
+    background: #ffffff;
+    border-style: solid;
+    border-color: black;
+}
+
+/* Estilos para quando o input está em foco (clicado) */
+.form-input:focus {
+    background: #ffffff;
+    outline: none; /* Remove a borda padrão do input quando está em foco */
+    border-style: solid;
+    border-color: black;
+}
+
+.botão{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 7px 5px;
+    width: 5rem;
+    border-radius: 7px;
+    border-style: none;
+    background: #08244C;
+    color: #ffffff;
+    margin-right: 2rem;
+}
+
+.div-input{
+    display: flex;
+    width: fit-content;
+}
+
+@media screen and (max-width: 1100px) {
+    .formulario {
+        font-size: 20px;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+        margin: auto;
+        padding: 20px;
+    }
+    
+    .div-input {
+        padding-block: 10px;
+    }
+}
