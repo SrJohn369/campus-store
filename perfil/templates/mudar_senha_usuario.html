@@ -6,7 +6,7 @@
     <div class="mudar-senha-title">
        <h1>Alterar Senha</h1>
     </div>
-    <form action="">
+    <form id="formSenha" method='POST'>{% csrf_token %}
         <div>
             <label for="senha-atual">Senha atual:</label>
             <input type="password" name="senha-atual" id="senha-atual">
@@ -16,7 +16,9 @@
             <label for="nova-senha">Nova Senha:</label>
             <input type="password" name="nova-senha" id="nova-senha">
         </div>
-
+        <div id="div-response">
+            
+        </div>
         <div class="btn">
             <input type="submit" value="Salvar">
         </div>

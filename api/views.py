@@ -1,4 +1,6 @@
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.hashers import check_password
+from django.contrib.auth.decorators import permission_required
 
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -16,8 +18,8 @@ from .serializers import *
 # Create your views here.
 @api_view(['GET'])
 def index(request):
-    vendedor = VendedorModel.objects.all()
-    serializar_vendedor = VendedorSerializer(vendedor, many=True)
+    vendedor = User.objects.filter(username=request.user.username)
+    serializar_vendedor = UsuarioId(vendedor, many=True)
     
     return Response(serializar_vendedor.data, status=status.HTTP_200_OK)
 
@@ -124,3 +126,26 @@ def carrinho(request):
                 return Response({'mensagem': 'Favorito não encontrado.'}, status=status.HTTP_404_NOT_FOUND)
         else:
             return Response({'mensagem': 'Parâmetro favorito ausente.'}, status=status.HTTP_400_BAD_REQUEST)
+
+
+@api_view(['POST'])
+def mudar_senha(request):
+    if request.method == 'POST':
+        if request.user.is_authenticated:
+            senha_atual = request.query_params.get('senha_atual')
+            nova_senha = request.query_params.get('nova_senha')
+            
+            try:
+                usuario = User.objects.get(username=request.user.username)
+                if check_password(senha_atual, usuario.password):
+                    usuario.set_password(nova_senha)
+                    usuario.saave()
+                    
+                    # A senha atual é válida
+                    return Response({"mensagem": "Alterada com sucesso"}, status=status.HTTP_200_OK)
+                else:
+                    # A senha atual não corresponde
+                    return Response({"mensagem": "Senha atual incorreta"}, status=status.HTTP_400_BAD_REQUEST)
+            except User.DoesNotExist:
+                # Usuário não encontrado
+                return Response({"mensagem": "Usuario não cadastrado"}, status=status.HTTP_404_NOT_FOUND)

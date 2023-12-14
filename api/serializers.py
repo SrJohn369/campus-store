@@ -33,7 +33,7 @@ class UsuarioId(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ['id']
-        # extra_kwargs = {'password': {'write_only': True}}
+        extra_kwargs = {'password': {'write_only': True}}
 
 
 class Favoritos(serializers.ModelSerializer):

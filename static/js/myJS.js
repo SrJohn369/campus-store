@@ -35,7 +35,7 @@ function moverHTML() {
                 // Crie o HTML que deseja adicionar
             var novoHTML = `
                 <a href="${perfilURL}" class="nav-link">Login/Cadastro</a>
-                <a href = "#" class="nav-link">Carinho</a>`;
+                <a href = "${carrinhoURL}" class="nav-link">Carinho</a>`;
 
                 // Adicione o novo HTML ao elemento alvo
                 elementoAlvo.innerHTML += novoHTML;
@@ -83,7 +83,7 @@ function moverHTML() {
                 <a href="${perfilURL}" class="nav-link">
                     <i class="fas fa-user-circle"></i>
                 </a>
-                <a href="#" class="nav-link">
+                <a href="${carrinhoURL}" class="nav-link">
                     <i class="fas fa-shopping-cart"></i>
                 </a>
             </div>` ;
