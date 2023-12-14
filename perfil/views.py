@@ -211,33 +211,7 @@ def add_produto(request):
     if request.method == 'GET':
         return render(request, 'add_produto.html')
 
-    elif request.method == 'POST': 
-        list_data = [
-                request.POST.get('profile-pic'),
-                request.FILES.get('input-file'),
-                request.POST.get('tit-serv'),
-                request.POST.get('desc-serv'),
-                request.POST.get('val-serv')
-            ]
-            
-            produto = Produto.objects.get(username=request.user.username)
-            
-            # Remove foto antiga
-            if request.FILES.get('input-file'): # verifica se há arquivo
-                produto = list_data[1]
-                caminho_foto_antiga = produto.foto_prod.path
-                if os.path.exists(caminho_foto_antiga):
-                    os.remove(caminho_foto_antiga)
-            
-            # Atualiza dados
-            produto.nome_prod = list_data[2]
-            produto.preco = list_data[4]
-            produto.foto_prod = list_data[1]
-            produto.= list_data[3]
-            
-            produto.save() 
-            
-            return render(request, 'sucesso_perfil.html')
+    elif request.method == 'POST': pass
 
 
 @login_required(login_url='login:login_usuario')
