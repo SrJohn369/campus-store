@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 from cadastro.models import Usuario, Vendedor
+from django.db.models import Avg
 from .models import *
 import os
 
@@ -98,7 +99,32 @@ def editar_informacoes(request):
         
         # Editar info do usuário vendedor
         elif Vendedor.objects.filter(username=request.user.username).exists():
-            pass
+            list_data = [
+                request.POST.get('nome'),
+                request.POST.get('telefone'),
+                request.POST.get('descricao'),
+                request.POST.get('sobrenome'),
+                request.POST.get('email'),
+                request.POST.get('telefone'),
+                request.FILES.get('input-file')
+            ]
+            
+            user = Vendedor.objects.get(username=request.user.username)
+            
+            # Remove foto antiga
+            if request.FILES.get('input-file'): # verifica se há arquivo
+                user.foto = list_data[4]
+                caminho_foto_antiga = user.foto.path
+                if os.path.exists(caminho_foto_antiga):
+                    os.remove(caminho_foto_antiga)
+            
+            # Atualiza dados
+            user.first_name = list_data[0]
+            user.last_name = list_data[1]
+            user.email = list_data[2]
+            user.telefone = list_data[3]
+            
+            user.save() 
 
 
 @login_required(login_url='login:login_usuario')
@@ -130,11 +156,12 @@ def carrinho(request):
 @login_required(login_url='login:login_usuario')
 def produto(request):
     if request.method == 'GET':
-        data_produtos = Produto.objects.filter(vendedor_id=request.user.id)
-        print(Produto.objects.filter(vendedor_id=request.user))
-        for a in Produto.objects.all():
-            print(a)
-        print(request.user.id)
+        # dados do produto + média de estrelas
+        data_produtos = Produto.objects.prefetch_related('avaliacao_set')\
+            .annotate(media_avaliacao=Avg('avaliacao__estrelas'))\
+            .filter(vendedor_id=request.user.username)
+
+        print(data_produtos)
 
         return render(request, "perfil_vendedor_prod.html", {'data_produtos': data_produtos})
 
@@ -181,7 +208,36 @@ def editar_servico(request):
 
 @login_required(login_url='login:login_usuario')
 def add_produto(request):
-    if request.method == 'GET': return render(request, 'add_produto.html')
+    if request.method == 'GET':
+        return render(request, 'add_produto.html')
+
+    elif request.method == 'POST': 
+        list_data = [
+                request.POST.get('profile-pic'),
+                request.FILES.get('input-file'),
+                request.POST.get('tit-serv'),
+                request.POST.get('desc-serv'),
+                request.POST.get('val-serv')
+            ]
+            
+            produto = Produto.objects.get(username=request.user.username)
+            
+            # Remove foto antiga
+            if request.FILES.get('input-file'): # verifica se há arquivo
+                produto = list_data[1]
+                caminho_foto_antiga = produto.foto_prod.path
+                if os.path.exists(caminho_foto_antiga):
+                    os.remove(caminho_foto_antiga)
+            
+            # Atualiza dados
+            produto.nome_prod = list_data[2]
+            produto.preco = list_data[4]
+            produto.foto_prod = list_data[1]
+            produto.= list_data[3]
+            
+            produto.save() 
+            
+            return render(request, 'sucesso_perfil.html')
 
 
 @login_required(login_url='login:login_usuario')
