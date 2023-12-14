@@ -9,29 +9,33 @@
         <main class="produtos">
             <div class="wrapper">
                 <a href="{% url 'perfil:editar_produto' %}" class="card-link">
-                    <div class="card-produto">
-                        <div class="frame1">
-                            <img class="img-card" src="https://picsum.photos/200" alt="Imagem do Produto">
-                        </div>
-                        <div class="frame2">
-                            <div class="text-card">
-                                <h4 id="prod-name">{{produto.nome_prod}}</h4>
-                                <h4 id="preco">R$ {{produto.preco}}</h4>
-                                <div class="strelas-avaliacao">
-                                    {% if produto.media_avaliacao %}
-                                    <span>{{produto.media_avaliacao}} </span><i class="fa-solid fa-star"></i>
-                                    {% else %}
-                                    <span>0 </span><i class="fa-solid fa-star"></i>
-                                    {% endif %}
+                    {% for data in data_produto %}
+                        <div class="card-produto">
+                            <div class="frame1">
+                                <img class="img-card" src="{{data.foto_prod.url}}" alt="Imagem do Produto">
+                            </div>
+                            <div class="frame2">
+                                <div class="text-card">
+                                    <h4 id="prod-name">{{data.nome_prod}}</h4>
+                                    <h4 id="preco">R$ {{data.preco}}</h4>
+                                    <div class="strelas-avaliacao">
+                                        {% if data.media_avaliacao %}
+                                        <span>{{data.media_avaliacao}} </span><i class="fa-solid fa-star"></i>
+                                        {% else %}
+                                        <span>0 </span><i class="fa-solid fa-star"></i>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="botoes">
+                                    <button id='add_favorito{{forloop.counter}}' data-produto-id="{{ produto.id }}">
+                                        <i class="fa-solid fa-pencil"></i>
+                                    </button>
                                 </div>
                             </div>
-                            <div class="botoes">
-                                <button id='add_favorito{{forloop.counter}}' data-produto-id="{{ produto.id }}">
-                                    <i class="fa-solid fa-pencil"></i>
-                                </button>
-                            </div>
                         </div>
-                    </div>
+                    {% empty %}
+                        Sem
+                    {% endfor %}
                 </a>
             </div>
         </main>
