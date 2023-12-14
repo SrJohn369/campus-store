@@ -188,3 +188,7 @@ def add_produto(request):
 def editar_produto(request):
     if request.method == 'GET': return render(request, 'editar_produto.html')
 
+
+@login_required(login_url='login:login_usuario')
+def editar_perfil_vendedor(request):
+    if request.method == 'GET': return render(request, 'editar-perfil-vendedor.html')
