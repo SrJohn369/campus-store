@@ -21,35 +21,45 @@
                 </thead>
 
                 <tbody> <!--Conteudo dos produtos-->
-                    {% if data_carrinho or data_compras %}
                     {% for data in data_carrinho %}
-                        <tr>
+                        <tr id="tabela_produto{{forloop.counter}}">
                             <td>
                                 <div class="product">
-                                    <img src="https://picsum.photos/200" alt="">
+                                    <img src="{{data.produto_foto.url}}" alt="img do produto">
                                     <div class="info">
-                                        <div class="name">{{data_carrinho.produto.nome_prod}}</div>
-                                        <div class="vendedor">Nome do Vendedor</div>
+                                        <div class="name">{{data.produto_nome}}</div>
+                                        <div class="vendedor">{{data.vendedor_negocio}}</div>
                                     </div>
                                 </div>
                             </td>
                             <td>
                                 <div class="qtd">
-                                    <button><i class='bx bx-minus'></i></button>
-                                    <span class="maincolor">2</span>
-                                    <button><i class='bx bx-plus'></i></button>
+                                    <button id="btn-minus">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash" viewBox="0 0 16 16">
+                                            <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8"/>
+                                        </svg>
+                                    </button>
+                                    <span class="maincolor" id="qtd-produto{{forloop.counter}}">{{data.produto_quantidade}}</span>
+                                    <button id="btn-plus">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"/>
+                                        </svg>
+                                    </button>
                                 </div>
                             </td>
-                            <td class="maincolor">R$ 10,00</td>
+                            <td class="maincolor">R$ {{data.produto_preço}}</td>
                             <td class="maincolor">R$ 20,00</td>
-                            <td><button class="remove"><i class='bx bx-trash'></i></i></button></td>
+                            <td><button class="remove" id="btn-remove{{forloop.counter}}" id-carrinho="{{data.carrinho_id}}" id-tr-tabela="{{forloop.counter}}">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                                    <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0"/>
+                                </svg>
+                            </button></td>
                         </tr>
-                    {% endfor %}
-                    {% else %}
+                    {% empty %}
                     <tr>
                         <td colspan="4">NÃO HÁ PRODUTOS EM SEU CARRINHO</td>
                     </tr>
-                    {% endif %}
+                    {% endfor %}
                 </tbody>
             </table>
         </section>

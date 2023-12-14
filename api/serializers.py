@@ -13,7 +13,7 @@ class VendedorSerializer(serializers.ModelSerializer):
 class ProdutoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Produto
-        fields = '__all__'
+        fields = ['id', 'nome_prod', 'preco']
 
 
 class UsuarioSerializer(serializers.ModelSerializer):
@@ -45,6 +45,7 @@ class Favoritos(serializers.ModelSerializer):
 
 
 class CarrinhoSerial(serializers.ModelSerializer):
+    produto = ProdutoSerializer()
     class Meta:
         model = Carrinho
         fields = [

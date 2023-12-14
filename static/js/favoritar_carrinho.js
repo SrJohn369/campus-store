@@ -163,11 +163,11 @@ function addCarrinho() {
         });
 
         // console.log(response.data)
-        // console.log(response.data.carrinho)
+        console.log(response.data.carrinho)
         if (response.data.usuario.id) {
             response.data.carrinho.forEach((produto) => {
                 // console.log('PASSOU FOREATCH CHECK')
-                if (produto.produto == produtoID) {
+                if (produto.produto.id == produtoID) {
                     console.log("PASSOU NESSE IF DE CHECK")
                     botao = document.getElementById(button.id)
                     botao.innerHTML = ''
@@ -197,8 +197,9 @@ function addCarrinho() {
                     },
                 });
                 // VERIFICA O PRODUTO ATUAL COM FAVORITO
+                console.log(responseGET.data.carrinho)
                 responseGET.data.carrinho.forEach((carrinho) => {
-                    if (carrinho.produto == produtoID) {
+                    if (carrinho.produto.id == produtoID) {
                         verifica = true
                         carrinho_id = carrinho.id
                         console.log('PASSOU FOREATCH')
@@ -208,7 +209,7 @@ function addCarrinho() {
                 // VERIFICA SE TEM FAVORITO PARA O SEGUNDO CLIQUE
                 if (verifica) {
                     console.log('PASSOU NO DELETE')
-                    await axios.delete(`/api/carrinho?carrinho=${carrinho_id}`, {
+                    await axios.delete(`/api/carrinho?remove_carrinho=${carrinho_id}`, {
                         headers: {
                             'X-CSRFToken': csrftoken,
                         }

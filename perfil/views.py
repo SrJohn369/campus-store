@@ -104,27 +104,24 @@ def editar_informacoes(request):
 @login_required(login_url='login:login_usuario')
 def carrinho(request):
     if request.method == 'GET':
-        
-        dict_data = {} 
-        
-        try:
-            data_carrinho = Carrinho.objects.filter(usuario=request.user.id)
-            if data_carrinho:
-                dict_data['data_carrinho'] = data_carrinho
-            else:
-                dict_data['data_carrinho'] = []
-        except:
-            dict_data['data_carrinho'] = []
-        try:
-            data_compras = Compra.objects.filter(usuario=request.user.id)
-            if data_compras:
-                dict_data['data_compras'] = data_compras
-            else:
-                dict_data['data_compras'] = []
-        except:
-            dict_data['data_compras'] = []
-        
-        return render(request, 'perfil_usuário_carrinho.html', dict_data)
+        usuario = request.user.id
+        carrinho = Carrinho.objects.select_related(
+            'produto__vendedor').filter(usuario__id=usuario)
+
+        data_carrinho = [
+            {
+                'produto_nome': carrinho.produto.nome_prod,
+                'produto_id': carrinho.produto.id,
+                'produto_preço': carrinho.produto.preco,
+                'vendedor_negocio': carrinho.produto.vendedor.negocio,
+                'produto_quantidade': carrinho.quantidade_produto,
+                'produto_foto': carrinho.produto.foto_prod,
+                'carrinho_id': carrinho.id
+            }
+            for carrinho in carrinho
+        ]
+        # print(data_carrinho)
+        return render(request, 'perfil_usuário_carrinho.html', {'data_carrinho': data_carrinho})
     
     if request.method == 'POST':
         pass

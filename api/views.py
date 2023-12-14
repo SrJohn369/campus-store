@@ -88,10 +88,12 @@ def carrinho(request):
                             'usuario': serializar_usuario.data}, status=status.HTTP_200_OK)
         
         elif request.user.is_authenticated:
-            carrinho = CarrinhoModel.objects.filter(usuario=request.user.id)
+            carrinho = CarrinhoModel.objects.select_related('produto')\
+                .filter(usuario=request.user.id)
             
             serializar_carrinho = CarrinhoSerial(carrinho, many=True)
             serializar_usuario = UsuarioId(request.user)
+            
 
             return Response({'carrinho':serializar_carrinho.data,
                             'usuario': serializar_usuario.data}, status=status.HTTP_200_OK)
@@ -111,11 +113,11 @@ def carrinho(request):
         )
         return Response({'mensagem': 'DEU BOM'}, status=status.HTTP_201_CREATED)
     elif request.method == 'DELETE':
-        carrinho_id = request.query_params.get('carrinho')
+        carrinho_id = request.query_params.get('remove_carrinho')
         
         if carrinho_id:
             try:
-                carrinho = CarrinhoModel.objects.get(id=carrinho)
+                carrinho = CarrinhoModel.objects.get(id=carrinho_id)
                 carrinho.delete()
                 return Response({'mensagem': 'Removido dos favoritos com sucesso!'}, status=status.HTTP_200_OK)
             except CarrinhoModel.DoesNotExist:

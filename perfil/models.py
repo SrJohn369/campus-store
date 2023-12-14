@@ -20,7 +20,7 @@ class Avaliacao(models.Model):
 
 class Carrinho(models.Model):
     
-    quantidade_produto = models.IntegerField(blank=True, null=True)
+    quantidade_produto = models.IntegerField(blank=True, null=True, default=1)
     adicicionado_em = models.DateTimeField(auto_now_add=True)
     
     vendedor = models.ForeignKey(Vendedor, on_delete=models.CASCADE, blank=True, null=True)
