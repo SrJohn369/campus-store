@@ -11,11 +11,24 @@ Este projeto é um e-commerce desenvolvido por mim e colegas do [IFPI](https://w
 
 ## Funcionalidades
 
+<img src="https://github.com/SrJohn369/campus-store/assets/111895486/4f074569-ef95-4d54-b501-f025b74294ce" width="20px" align="center" />  **Compra e venda:** Os alunos podem tanto comprar quanto vender produtos ou serviços dentro da plataforma.
+  
+<img src="https://github.com/SrJohn369/campus-store/assets/111895486/4f074569-ef95-4d54-b501-f025b74294ce" width="20px" align="center" />  **Criação de conta:** Os usuários podem criar uma conta para gerenciar suas compras e vendas.
+  
+<img src="https://github.com/SrJohn369/campus-store/assets/111895486/4f074569-ef95-4d54-b501-f025b74294ce" width="20px" align="center" />  **Favoritos:** Os usuários podem adicionar produtos favoritos para acessá-los facilmente mais tarde.
+  
+<img src="https://github.com/SrJohn369/campus-store/assets/111895486/4f074569-ef95-4d54-b501-f025b74294ce" width="20px" align="center" /> **Pesquisa:** É possível pesquisar por produtos ou serviços específicos.
+
 
 ## Aplicação
 
 
 ## Acesso ao Projeto
+
+Você pode acessar o projeto no [código fonte](https://github.com/SrJohn369/campus-store/), pelo [link do site]() ou [baixá-lo](https://github.com/SrJohn369/campus-store/archive/refs/heads/main.zip)
+
+
+## Abrir e rodar o projeto
 
 
 ## Tecnologias e Ferramentas usadas
@@ -31,3 +44,14 @@ Este projeto é um e-commerce desenvolvido por mim e colegas do [IFPI](https://w
 ![Static Badge](https://img.shields.io/badge/bootstrap-%237952B3?style=for-the-badge&logo=bootstrap&logoColor=%23fff)
 ![Static Badge](https://img.shields.io/badge/figma-%23F24E1E?style=for-the-badge&logo=figma&logoColor=%23fff)
 
+
+## Desenvolvedores
+### Front-end
+
+| [<img loading="lazy" src="https://avatars.githubusercontent.com/u/111895486?v=4" width=115><br><sub>Carla</sub>](https://github.com/carla11235813) | [<img loading="lazy" src="https://avatars.githubusercontent.com/u/80928981?v=4" width=115><br><sub>Andressa Felix</sub>](https://github.com/andressafan) |
+| :---: | :---: |
+
+### Back-End
+
+| [<img loading="lazy" src="https://avatars.githubusercontent.com/u/106630200?v=4" width=115><br><sub>João Victor</sub>](https://github.com/SrJohn369) | [<img loading="lazy" src="https://avatars.githubusercontent.com/u/88902325?v=4" width=115><br><sub>Flávio Leão </sub>](https://github.com/FlaviollsDev) | 
+| :---: | :---: |
