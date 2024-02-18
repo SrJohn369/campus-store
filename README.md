@@ -25,7 +25,7 @@ Este projeto é um e-commerce desenvolvido por mim e colegas do [IFPI](https://w
 
 ## Acesso ao Projeto
 
-Você pode acessar o projeto no [código fonte](https://github.com/SrJohn369/campus-store/), pelo [link do site]() ou [baixá-lo](https://github.com/SrJohn369/campus-store/archive/refs/heads/main.zip)
+Você pode acessar o projeto no [código fonte](https://github.com/SrJohn369/campus-store/) ou pelo [link do site]().
 
 
 ## Tecnologias e Ferramentas usadas
