@@ -28,9 +28,6 @@ Este projeto é um e-commerce desenvolvido por mim e colegas do [IFPI](https://w
 Você pode acessar o projeto no [código fonte](https://github.com/SrJohn369/campus-store/), pelo [link do site]() ou [baixá-lo](https://github.com/SrJohn369/campus-store/archive/refs/heads/main.zip)
 
 
-## Abrir e rodar o projeto
-
-
 ## Tecnologias e Ferramentas usadas
 ![Static Badge](https://img.shields.io/badge/python-%233776AB?style=for-the-badge&logo=python&logoColor=%23F7DF1E)
 ![Static Badge](https://img.shields.io/badge/django-%23092E20?style=for-the-badge&logo=django&logoColor=%23fff)
