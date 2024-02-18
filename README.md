@@ -53,5 +53,5 @@ Você pode acessar o projeto no [código fonte](https://github.com/SrJohn369/cam
 
 ### Back-End
 
-| [<img loading="lazy" src="https://avatars.githubusercontent.com/u/106630200?v=4" width=115><br><sub>João Victor</sub>](https://github.com/SrJohn369) | [<img loading="lazy" src="https://avatars.githubusercontent.com/u/88902325?v=4" width=115><br><sub>Flávio Leão </sub>](https://github.com/FlaviollsDev) | 
-| :---: | :---: |
+| [<img loading="lazy" src="https://avatars.githubusercontent.com/u/106630200?v=4" width=115><br><sub>João Victor</sub>](https://github.com/SrJohn369) | 
+| :---: |
