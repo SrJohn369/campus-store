@@ -17,7 +17,9 @@ Este projeto é um e-commerce desenvolvido por mim e colegas do [IFPI](https://w
   
 <img src="https://github.com/SrJohn369/campus-store/assets/111895486/4f074569-ef95-4d54-b501-f025b74294ce" width="20px" align="center" />  **Favoritos:** Os usuários podem adicionar produtos favoritos para acessá-los facilmente mais tarde.
   
-<img src="https://github.com/SrJohn369/campus-store/assets/111895486/4f074569-ef95-4d54-b501-f025b74294ce" width="20px" align="center" /> **Pesquisa:** É possível pesquisar por produtos ou serviços específicos.
+<img src="https://github.com/SrJohn369/campus-store/assets/111895486/4f074569-ef95-4d54-b501-f025b74294ce" width="20px" align="center" /> **Pesquisa:** É possível pesquisar por produtos ou serviços específicos. 
+
+<img src="https://github.com/SrJohn369/campus-store/assets/111895486/4f074569-ef95-4d54-b501-f025b74294ce" width="20px" align="center" /> **Carrinho:** Os usuários podem adicionar produtos ou serviços no carrinho. 
 
 
 ## Aplicação
