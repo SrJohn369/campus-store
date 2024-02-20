@@ -47,8 +47,8 @@ Você pode acessar o projeto no [código fonte](https://github.com/SrJohn369/cam
 ## Desenvolvedores
 ### Front-end
 
-| [<img loading="lazy" src="https://avatars.githubusercontent.com/u/111895486?v=4" width=115><br><sub>Carla</sub>](https://github.com/carla11235813) | [<img loading="lazy" src="https://avatars.githubusercontent.com/u/80928981?v=4" width=115><br><sub>Andressa Felix</sub>](https://github.com/andressafan) |
-| :---: | :---: |
+| [<img loading="lazy" src="https://avatars.githubusercontent.com/u/111895486?v=4" width=115><br><sub>Carla</sub>](https://github.com/carla11235813) | [<img loading="lazy" src="https://avatars.githubusercontent.com/u/80928981?v=4" width=115><br><sub>Andressa Felix</sub>](https://github.com/andressafan) | [<img loading="lazy" src="https://avatars.githubusercontent.com/u/106630200?v=4" width=115><br><sub>João Victor</sub>](https://github.com/SrJohn369) | 
+| :---: | :---: | :---: |
 
 ### Back-End
 
